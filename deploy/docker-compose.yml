@@ -2,5 +2,6 @@ version: "3.9"
 services:
   apache:
     build: ./apache
+    restart: ${APP_RESTART}
     ports:
       - ${APP_PORT}:80
