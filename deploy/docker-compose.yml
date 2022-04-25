@@ -5,3 +5,11 @@ services:
     restart: ${APP_RESTART}
     ports:
       - ${APP_PORT}:80
+    volumes:
+      - ../build:/usr/local/apache2/htdocs
+
+  eleventy:
+    build: ./eleventy
+    volumes:
+      - ../src:/source
+      - ../build:/build
