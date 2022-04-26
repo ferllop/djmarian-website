@@ -10,6 +10,8 @@ services:
 
   eleventy:
     build: ./eleventy
+    ports:
+      - 7001:8080
     volumes:
-      - ../src:/source
-      - ../build:/build
+      - ../src:/website_source
+      - ../build:/website_build
