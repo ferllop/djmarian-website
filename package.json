@@ -1,0 +1,29 @@
+{
+  "name": "djmarian-eleventy-website",
+  "description": "## Installation Clone this project and inside its root directory run:",
+  "version": "0.0.1",
+  "main": "index.js",
+  "devDependencies": {
+    "@11ty/eleventy": "1.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eleventy --input=src --output=build",
+    "build:watch": "npm run build -- --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferllop/djmarian-website.git"
+  },
+  "keywords": [
+    "djmarian",
+    "website",
+    "eleventy"
+  ],
+  "author": "contacto@ferranllop.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ferllop/djmarian-website/issues"
+  },
+  "homepage": "https://github.com/ferllop/djmarian-website#readme"
+}
