@@ -1,11 +1,12 @@
 version: "3.9"
 services:
   apache:
-    build: ./deploy/apache
+    image: httpd:2.4.52-alpine
     restart: ${APACHE_RESTART}
     ports:
       - ${APACHE_PORT}:80
     volumes:
+      - ./deploy/apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./build:/usr/local/apache2/htdocs
 
   node:
