@@ -21,7 +21,7 @@ Quizás te encuentres en una de las siguientes situaciones:
 
 **¡ME NECESITAS!**
 
-![sonrisa-Dj_Marian](https://djmarian.com/wp/wp-content/uploads/sonrie.webp)
+![sonrisa-Dj_Marian](/assets/images/sonrie.webp)
 
 Yo haré que puedas relajarte y disfrutar... ¡si te dejan, jajaja!
 
@@ -35,31 +35,21 @@ Se escuchar, recomendar y por supuesto ¡pinchar!
 
 ## Más información según tu tipo de evento:
 
-- [![Páginas de un libro en forma de corazón con un anillo a cada lado](src/assets/images/djmarian-bodas-275x183.jpg)](/bodas/)
+- [![Páginas de un libro en forma de corazón con un anillo a cada lado](/assets/images/djmarian-bodas-275x183.jpg)](/bodas/)
     
     ### [Boda](/bodas/)
     
-- [![Evento corporativo en salón iluminado en rosa](src/assets/images/djmarian-evento-corporativo-275x183.jpg)](/eventos-corporativos/)
+- [![Evento corporativo en salón iluminado en rosa](/assets/images/djmarian-evento-corporativo-275x183.jpg)](/eventos-corporativos/)
     
     ### [Evento Corporativo](/eventos-corporativos/)
     
-- [![Bengala encendida en la oscuridad](src/assets/images/djmarian-fiestas-privadas-275x183.jpg)](/fiestas-privadas/)
+- [![Bengala encendida en la oscuridad](assets/images/djmarian-fiestas-privadas-275x183.jpg)](/fiestas-privadas/)
     
     ### [Fiesta Privada](/fiestas-privadas/)
     
-- [![Mesa de mezclas de DJ](src/assets/images/djmarian-mezclas-personalizadas-275x183.jpg)](/mezclas-personalizadas/)
+- [![Mesa de mezclas de DJ](/assets/images/djmarian-mezclas-personalizadas-275x183.jpg)](/mezclas-personalizadas/)
     
     ### [Mezcla Personalizada](/mezclas-personalizadas/)
-    
 
-## Mis clientes opinan:
-
-{{ reviews[0].source }}
-
-{{ reviews[0].rating }}
-
-{{ reviews[0].name }}
-
-{{ reviews[0].content }}
-
-[Ver más opiniones](/opiniones/)
+{% set review = reviews[0] %}
+{% include 'partials/review.njk' %}
