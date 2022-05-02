@@ -83,9 +83,6 @@ Explicadme cuál es vuestra idea y así podré daros un precio exacto.
 
 **[¡CONSIGUE AHORA TU PRESUPUESTO!](/contacto/)**
 
-{% set review = reviews[0] %}
-{% include 'partials/review.njk' %}
-
 ## Artículos relacionados
 
 - [¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta](https://djmarian.com/bodas/preguntas-antes-contratar-dj/)

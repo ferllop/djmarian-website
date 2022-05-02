@@ -1,3 +1,5 @@
+{% set review = reviewsCollection.getRandomReview(reviews) %}
+
 <article class="review"
          data-rating="{{ review.rating }}"
          data-source="{{ review.source }}">

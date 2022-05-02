@@ -50,6 +50,3 @@ Se escuchar, recomendar y por supuesto ¡pinchar!
 - [![Mesa de mezclas de DJ](/assets/images/djmarian-mezclas-personalizadas-275x183.jpg)](/mezclas-personalizadas/)
     
     ### [Mezcla Personalizada](/mezclas-personalizadas/)
-
-{% set review = reviews[0] %}
-{% include 'partials/review.njk' %}

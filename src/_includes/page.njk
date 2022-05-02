@@ -2,4 +2,8 @@
 layout: base.njk
 ---
 <h1>{{ title }}</h1>
+
 {{ content | safe }}
+
+{% include 'partials/review.njk' %}
+

@@ -34,5 +34,3 @@ Viajando a lugares como Atenas, Sicilia, Marruecos (en una haima en mitad del de
 
 ![](/assets/images/6-183x275.jpg)
 
-{% set review = reviews[0] %}
-{% include 'partials/review.njk' %}
