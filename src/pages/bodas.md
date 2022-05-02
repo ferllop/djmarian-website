@@ -79,12 +79,3 @@ Y si no te has cansado de leer, te animo a que mires más abajo en artículos re
 
 Ahora ya habréis podido conocer como hago mi trabajo.
 Explicadme cuál es vuestra idea y así podré daros un precio exacto.
-
-**[¡CONSIGUE AHORA TU PRESUPUESTO!](/contacto/)**
-
-## Artículos relacionados
-
-- [¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta](https://djmarian.com/bodas/preguntas-antes-contratar-dj/)
-- [¿¡Cómo!? Elegir canciones para la discoteca de tu boda](https://djmarian.com/bodas/elegir-canciones-discoteca/)
-- [Escoger las canciones de protocolo para tu boda](https://djmarian.com/bodas/escoger-canciones-protocolo/)
-- [¿Que canciones elegir para cada momento de mi boda?](https://djmarian.com/bodas/momentos-importantes/)
