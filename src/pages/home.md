@@ -4,10 +4,6 @@ title: "DJ especializada en eventos privados"
 permalink: "/"
 ---
 
-[//]: # ([velocity type="vimeo" id="237134347" img="https://djmarian.com/wp/wp-content/uploads/portada-video-djmarian.webp" options="width="300"&height="150"&frameborder="0"&allowfullscreen="allowfullscreen"" alt="Play" color="#FFFFFF" bkg\_color="#FF0000"\]#])
-
-https://vimeo.com/237134347
-
 Estás organizando un evento y necesitas música.
 
 Quizás te encuentres en una de las siguientes situaciones:
