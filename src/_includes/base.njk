@@ -8,7 +8,10 @@
 </head>
 <body>
     {% include 'partials/header.njk' %}
-    {{ content | safe }}
+    <h1>{{ title }}</h1>
+    <main>
+        {{ content | safe }}
+    </main>
     {% include 'partials/footer.njk' %}
 </body>
 </html>
