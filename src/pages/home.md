@@ -1,6 +1,7 @@
 ---
 layout: home.njk
 title: "DJ especializada en eventos privados"
+permalink: "/"
 ---
 
 [//]: # ([velocity type="vimeo" id="237134347" img="https://djmarian.com/wp/wp-content/uploads/portada-video-djmarian.webp" options="width="300"&height="150"&frameborder="0"&allowfullscreen="allowfullscreen"" alt="Play" color="#FFFFFF" bkg\_color="#FF0000"\]#])
@@ -43,7 +44,7 @@ Se escuchar, recomendar y por supuesto ¡pinchar!
     
     ### [Evento Corporativo](/eventos-corporativos/)
     
-- [![Bengala encendida en la oscuridad](assets/images/djmarian-fiestas-privadas-275x183.jpg)](/fiestas-privadas/)
+- [![Bengala encendida en la oscuridad](src/assets/images/djmarian-fiestas-privadas-275x183.jpg)](/fiestas-privadas/)
     
     ### [Fiesta Privada](/fiestas-privadas/)
     
