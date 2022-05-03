@@ -32,22 +32,4 @@ Divertida, camaleónica y versátil pero ante todo profesional y con experiencia
 
 Se escuchar, recomendar y por supuesto ¡pinchar!
 
-[**¡CONTACTA CONMIGO!**](/contacto/)
 
-## Más información según tu tipo de evento:
-
-- [![Páginas de un libro en forma de corazón con un anillo a cada lado](/assets/images/djmarian-bodas-275x183.jpg)](/bodas/)
-    
-    ### [Boda](/bodas/)
-    
-- [![Evento corporativo en salón iluminado en rosa](/assets/images/djmarian-evento-corporativo-275x183.jpg)](/eventos-corporativos/)
-    
-    ### [Evento Corporativo](/eventos-corporativos/)
-    
-- [![Bengala encendida en la oscuridad](src/assets/images/djmarian-fiestas-privadas-275x183.jpg)](/fiestas-privadas/)
-    
-    ### [Fiesta Privada](/fiestas-privadas/)
-    
-- [![Mesa de mezclas de DJ](/assets/images/djmarian-mezclas-personalizadas-275x183.jpg)](/mezclas-personalizadas/)
-    
-    ### [Mezcla Personalizada](/mezclas-personalizadas/)
