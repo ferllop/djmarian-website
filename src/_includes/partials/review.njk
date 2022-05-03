@@ -1,9 +1,6 @@
-{% set review = reviewsCollection.getRandomReview(reviews) %}
-
 <article class="review"
          data-rating="{{ review.rating }}"
          data-source="{{ review.source }}">
-    <h2>Mis clientes opinan:</h2>
     <section class="name">{{ review.name }} -</section>
     <section class="rating">
         {% for i in range(0, review.rating) -%}

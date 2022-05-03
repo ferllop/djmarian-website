@@ -3,22 +3,28 @@ layout: base.njk
 ---
 <h1>{{ title }}</h1>
 
-{{ content | safe }}
+<main>
+    {{ content | safe }}
+</main>
 
-<p class="has-text-align-center">
-    <span class="red-button">
-        <a href="/contacto/"><strong>¡CONSIGUE AHORA TU PRESUPUESTO!</strong></a>
-    </span>
-</p>
+<section>
+    <p class="has-text-align-center">
+        <span class="red-button">
+            <a href="/contacto/"><strong>¡CONSIGUE AHORA TU PRESUPUESTO!</strong></a>
+        </span>
+    </p>
+</section>
 
-{% include 'partials/review.njk' %}
+<section>
+    <h2>Mis clientes opinan:</h2>
+    {% set review = reviewsCollection.getRandomReview(reviews) %}
+    {% include 'partials/review.njk' %}
+</section>
 
-<h2>Artículos relacionados</h2>
-
-<a href="/bodas/preguntas-antes-contratar-dj/">¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta</a>
-<a href="/bodas/elegir-canciones-discoteca/">¿¡Cómo!? Elegir canciones para la discoteca de tu boda</a>
-<a href="/bodas/escoger-canciones-protocolo/">Escoger las canciones de protocolo para tu boda</a>
-<a href="/bodas/momentos-importantes/">¿Que canciones elegir para cada momento de mi boda?</a>
-
-
-
+<section>
+    <h2>Artículos relacionados</h2>
+    <a href="/bodas/preguntas-antes-contratar-dj/">¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta</a>
+    <a href="/bodas/elegir-canciones-discoteca/">¿¡Cómo!? Elegir canciones para la discoteca de tu boda</a>
+    <a href="/bodas/escoger-canciones-protocolo/">Escoger las canciones de protocolo para tu boda</a>
+    <a href="/bodas/momentos-importantes/">¿Que canciones elegir para cada momento de mi boda?</a>
+</section>
