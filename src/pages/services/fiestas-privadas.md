@@ -1,6 +1,7 @@
 ---
 title: "DJ para fiestas privadas"
 coverImage: "StockSnap_L6BUD1V0U3.jpg"
+serviceType: "fiestas-privadas"
 ---
 
 Cumpleaños, bautizos, comuniones, aniversarios, puestas de largo, porque si..

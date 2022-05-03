@@ -1,6 +1,7 @@
 ---
 title: "DJ para eventos corporativos"
 coverImage: "evento-corporativo-ambiente-rosa.jpg"
+serviceType: "eventos-corporativos"
 ---
 
 Inauguraciones, presentaciones de producto, amenizar los coffe break, potenciar la imagen de marca, de un congreso o como broche final en la cena de gala.

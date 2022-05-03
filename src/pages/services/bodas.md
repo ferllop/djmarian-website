@@ -1,6 +1,7 @@
 ---
 title: DJ para vuestra boda
 coverImage: "StockSnap_3WT2P2M9KM.jpg"
+serviceType: "bodas"
 ---
 
 Cuando se habla de boda, se habla de un día especial, un día para recordar el resto de la vida. Todos los detalles cuentan, y la música es ese detalle que pone el broche a un día perfecto.

@@ -18,10 +18,15 @@ layout: base.njk
     {% include 'partials/review.njk' %}
 </section>
 
+{% if collections[serviceType] %}
 <section>
     <h2>Artículos relacionados</h2>
-    <a href="/bodas/preguntas-antes-contratar-dj/">¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta</a>
-    <a href="/bodas/elegir-canciones-discoteca/">¿¡Cómo!? Elegir canciones para la discoteca de tu boda</a>
-    <a href="/bodas/escoger-canciones-protocolo/">Escoger las canciones de protocolo para tu boda</a>
-    <a href="/bodas/momentos-importantes/">¿Que canciones elegir para cada momento de mi boda?</a>
+    <nav>
+        <ul>
+            {%- for post in collections[serviceType] -%}
+            <li><a href={{post.url}}>{{ post.data.title }}</a></li>
+            {%- endfor -%}
+        </ul>
+    </nav>
 </section>
+{% endif %}
