@@ -1,4 +1,3 @@
 {
-  "layout": "page.njk",
   "permalink": "/{{page.fileSlug}}/"
 }

@@ -1,4 +1,5 @@
 ---
+layout: base.njk
 title: ¿Quién soy?
 ---
 ![](/assets/images/plata-275x124.jpg)
