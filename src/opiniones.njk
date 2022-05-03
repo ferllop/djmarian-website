@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: "Opiniones"
+---
+<h1>{{title}}</h1>
+<p>
+    ¡Mira lo que opinan mis clientes en <a href="https://www.google.es/search?q=dj+marian&oq=dj+marian&aqs=chrome..69i57j69i60l2j69i59l2.1065j0j1&sourceid=chrome&ie=UTF-8#fpstate=lurev_0x12a482b981b3f765:0x7ca8c3c9b3eadc99&lrd=0x12a482b981b3f765:0x7ca8c3c9b3eadc99,1,">Google</a> y
+    <a href="https://www.starofservice.es/profesional/dj/castelldefels/3462567/dj-marian#/">Star of Service</a>!
+</p>
+
+{% for review in reviews -%}
+    {% include './_includes/partials/review.njk' %}
+{%- endfor %}
+
+<p>También puedes dejarme tu review en <a href="/google-review/">google</a>.</p>
