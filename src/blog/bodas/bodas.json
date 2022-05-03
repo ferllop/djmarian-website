@@ -1,0 +1,4 @@
+{
+  "tags": ["bodas"],
+  "permalink": "/bodas/{{page.fileSlug}}/"
+}
