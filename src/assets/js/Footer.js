@@ -1,4 +1,6 @@
-<footer class="site-footer">
+export class MainFooter extends HTMLElement {
+	connectedCallback() {
+		this.innerHTML = `<footer class="site-footer">
     <section class="social">
         Encuéntrame en:
         <ul class="logo">
@@ -19,4 +21,6 @@
     <section class="copyright">
         Copyright © 2022 · DJ MARIAN
     </section>
-</footer>
+</footer>`
+	}
+} 
