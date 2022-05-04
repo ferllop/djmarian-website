@@ -1,10 +1,10 @@
-<header class="site-header" role="banner">
-    <section class="branding">
+export class MainHeader extends HTMLElement {
+	connectedCallback() {
+		this.innerHTML = `<header>
+    <section>
         <a href="/" rel="home">
-            <img src="/assets/images/logo-Dj-Marian.png" class="custom-logo"
+            <img src="/assets/images/logo-Dj-Marian.png"
                  alt="Logo de Dj Marian"
-                 srcset="/assets/images/logo-Dj-Marian.png 1024w, /assets/images/logo-Dj-Marian-150x23.png 150w, /assets/images/logo-Dj-Marian-275x41.png 275w, /assets/images/logo-Dj-Marian-768x116.png 768w"
-                 sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
                  width="1024" height="154">
         </a>
     </section>
@@ -18,4 +18,6 @@
             <li><a href="/contacto">Contacto</a></li>
         </ul>
     </nav>
-</header>
+</header>`
+	}
+} 

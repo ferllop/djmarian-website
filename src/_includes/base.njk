@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script type="module" src="/assets/js/index.js" defer></script>
     <title>{{ title }}</title>
 </head>
 <body>
-    {% include 'partials/header.njk' %}
+    <djm-main-header></djm-main-header>
+    
     <h1>{{ title }}</h1>
+
     <main>
         {{ content | safe }}
     </main>
+    
     {% include 'partials/footer.njk' %}
 </body>
 </html>
