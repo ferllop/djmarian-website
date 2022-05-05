@@ -14,8 +14,8 @@ layout: base.njk
 
 <section>
     <h2>Mis clientes opinan:</h2>
-    {% set review = reviewsCollection.getRandomReview(reviews) %}
-    {% include 'partials/review.njk' %}
+    <djm-review index="25"></djm-review>
+    <a href="/opiniones">Ver más opiniones</a>
 </section>
 
 {% if collections[serviceType] %}
