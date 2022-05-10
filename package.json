@@ -4,12 +4,21 @@
   "version": "0.0.1",
   "main": "index.js",
   "devDependencies": {
-    "@11ty/eleventy": "1.0.1"
+    "@11ty/eleventy": "1.0.1",
+    "@open-wc/testing": "3.1.4",
+    "@web/dev-server": "0.1.31",
+    "@web/test-runner": "0.13.27",
+    "@web/test-runner-commands": "0.6.1",
+    "tsm": "2.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf build && eleventy",
-    "watch": "npm run build -- --serve"
+    "build": "rm -rf build && node -r tsm node_modules/.bin/eleventy",
+    "build:serve": "npm run build -- --serve",
+    "build:watch": "npm run build -- --watch",
+    "serve": "web-dev-server --root-dir ./build --node-resolve --open --watch",
+    "//------TESTING-----": "",
+    "test": "web-test-runner test/**/*.test.js --node-resolve",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
