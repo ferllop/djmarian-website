@@ -6,7 +6,7 @@ const style = `
         justify-content: space-around;
         padding-top: 2em;
         padding-bottom: 1.5em;
-    	border-bottom: 1px solid var(--main-text-color, black);
+    	border-bottom: 1px solid;
 	}
 	
 	a {
