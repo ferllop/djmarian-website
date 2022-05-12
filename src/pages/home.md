@@ -1,5 +1,6 @@
 ---
 layout: home.njk
+siteTitle: "▷ DJ MARIAN - Eventos privados 100% personalizados"
 title: "DJ especializada en eventos privados"
 permalink: "/"
 ---
