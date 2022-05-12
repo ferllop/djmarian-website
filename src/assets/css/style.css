@@ -8,13 +8,18 @@
     box-sizing: inherit;
 }
 
+li {
+    list-style-type: none;
+}
+
 :root {
     --layout-margin: 4em;
 }
 
 html {
-    background: #000;
+    background: #1a1a1a;
     font-family: sans-serif;
+    color: #1a1a1a;
 }
 
 body {
@@ -25,4 +30,16 @@ body {
 .main-wrapper {
     padding-left: var(--layout-margin);
     padding-right: var(--layout-margin);
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding: 0.6em 3em;
+}
+
+.speech {
+    line-height: 2;
+    max-width: 800px;
+    margin: 0 auto;
 }
