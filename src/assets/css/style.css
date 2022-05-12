@@ -8,11 +8,21 @@
     box-sizing: inherit;
 }
 
+:root {
+    --layout-margin: 4em;
+}
+
 html {
     background: #000;
+    font-family: sans-serif;
 }
 
 body {
-    background: #fff;
     margin: 21px;
+    background: #fff;
+}
+
+.main-wrapper {
+    padding-left: var(--layout-margin);
+    padding-right: var(--layout-margin);
 }

@@ -1,23 +1,38 @@
-export class MainHeader extends HTMLElement {
-	connectedCallback() {
-		this.innerHTML = `<header>
+const style = `
+
+	header {
+	    display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding-top: 2em;
+        padding-bottom: 1.5em;
+    	border-bottom: 1px solid var(--main-text-color, black);
+	}
+	
+	a {
+		display: block;
+	}
+`
+
+const template = document.createElement('template')
+template.innerHTML = `
+<style>${style}</style>
+<header>
     <section>
         <a href="/" rel="home">
             <img src="/assets/images/logo-dj-marian.svg"
-                 alt="Logo de Dj Marian"
-                 width="1024" height="154">
+                 alt="Logo de Dj Marian">
         </a>
     </section>
-    <nav>
-        <ul>
-            <li><a href="/marian-corbalan">¿Quien Soy?</a></li>
-            <li><a href="/bodas">Bodas</a></li>
-            <li><a href="/eventos-corporativos">Eventos Corporativos</a></li>
-            <li><a href="/fiestas-privadas">Fiestas Privadas</a></li>
-            <li><a href="/opiniones">Opiniones</a></li>
-            <li><a href="/contacto">Contacto</a></li>
-        </ul>
-    </nav>
+    <djm-main-menu></djm-main-menu>
 </header>`
+
+export class MainHeader extends HTMLElement {
+	constructor() {
+		super()
+		this.attachShadow({mode: 'open'})
+	}
+	connectedCallback() {
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 	}
 } 
