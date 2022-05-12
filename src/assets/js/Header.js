@@ -3,7 +3,7 @@ export class MainHeader extends HTMLElement {
 		this.innerHTML = `<header>
     <section>
         <a href="/" rel="home">
-            <img src="/assets/images/logo-Dj-Marian.png"
+            <img src="/assets/images/logo-dj-marian.svg"
                  alt="Logo de Dj Marian"
                  width="1024" height="154">
         </a>
