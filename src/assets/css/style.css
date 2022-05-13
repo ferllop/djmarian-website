@@ -108,3 +108,17 @@ video a {
 video a:hover {
     text-decoration: underline;
 }
+
+.cto a {
+    display: inline-block;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding: 6px 24px;
+    background-color: #bc3315;
+    border: 1px solid #942911;
+    border-radius: 6px;
+    color: #ffffff;
+    line-height: 1.75;
+    text-decoration: none;
+    cursor: pointer;
+}

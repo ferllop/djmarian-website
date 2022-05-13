@@ -1,12 +1,11 @@
 ---
 layout: base.njk
+ctoMessage: '¡CONSIGUE AHORA TU PRESUPUESTO!'
 ---
 
 {{ content | safe }}
 
-<section>
-    <djm-cto-contacta>¡CONSIGUE AHORA TU PRESUPUESTO!</djm-cto-contacta>
-</section>
+{% include 'partials/contact-cto.njk' %}
 
 {% include 'partials/one-review.njk' %}
 

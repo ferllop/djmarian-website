@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+ctoMessage: '¡CONTACTA CONMIGO!'
 ---
 
 <section>
@@ -10,11 +11,8 @@ layout: base.njk
     {{ content | safe }}
 </section>
 
-<section>
-    <djm-cto-contacta>¡CONTACTA CONMIGO!</djm-cto-contacta>
-</section>
+{% include 'partials/contact-cto.njk' %}
 
-<section>
     <h2>Más información según tu tipo de evento:</h2>
     <djm-services-gallery></djm-services-gallery>
 </section>
