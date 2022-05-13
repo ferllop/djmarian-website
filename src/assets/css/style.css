@@ -122,3 +122,46 @@ video a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+.services-gallery nav {
+    margin: auto;
+    max-width: 800px;
+}
+
+.services-gallery ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding-left: 0;
+    list-style: none;
+}
+
+.services-gallery a {
+    color: black;
+    text-decoration: none;
+    box-shadow: none
+}
+
+.services-gallery a:hover,
+.services-gallery a:active {
+    text-decoration: underline;
+}
+
+.services-gallery li {
+    --border-radius: 8px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.services-gallery img {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.services-gallery h3 {
+    color: black;
+    font-weight: 600;
+    font-style: normal;
+    font-family: serif;
+}
