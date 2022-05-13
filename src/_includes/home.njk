@@ -3,19 +3,7 @@ layout: base.njk
 ---
 
 <section>
-    <djm-video></djm-video>
-    <noscript>
-        <video width="80%" preload="metadata" controls poster="/assets/images/portada-video-djmarian.webp" >
-            <track label="Audiodescripción" kind="captions" srclang="es" src="/assets/videos/subtitles/Video-Promocional-Dj-Marian.vtt">
-            <source src="/assets/videos/Video-Promocional-Dj-Marian.webm" type="video/webm">
-            <source src="/assets/videos/Video-Promocional-Dj-Marian.mp4" type="video/mp4">
-            <a target="_blank"
-               rel="noopener"
-               href="/assets/videos/Video-Promocional-Dj-Marian.webm">
-                ¡Mira mi vídeo promocional!
-            </a>
-        </video>`
-    </noscript>
+    {% include 'partials/video.njk' %}
 </section>
 
 <section class="speech">
