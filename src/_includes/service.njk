@@ -8,11 +8,7 @@ layout: base.njk
     <djm-cto-contacta>¡CONSIGUE AHORA TU PRESUPUESTO!</djm-cto-contacta>
 </section>
 
-<section class="review">
-    <h2>Mis clientes opinan:</h2>
-    <djm-review></djm-review>
-    <a href="/opiniones">Ver más opiniones</a>
-</section>
+{% include 'partials/one-review.njk' %}
 
 {% if collections[serviceType] %}
 <section>
