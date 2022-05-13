@@ -1,0 +1,12 @@
+{% if collections[serviceType] %}
+<section>
+    <h2>Artículos relacionados</h2>
+    <nav>
+        <ul>
+            {%- for post in collections[serviceType] -%}
+            <li><a href={{post.url}}>{{ post.data.title }}</a></li>
+            {%- endfor -%}
+        </ul>
+    </nav>
+</section>
+{% endif %}
