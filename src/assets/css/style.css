@@ -230,3 +230,12 @@ video a:hover {
     font-style: normal;
     font-family: serif;
 }
+
+
+/*@ RELATED ARTICLES */
+.related-articles {
+    text-align: left;
+}
+.related-articles li {
+    list-style-type: disc;
+}
