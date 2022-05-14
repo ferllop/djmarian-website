@@ -188,3 +188,8 @@ video a:hover {
     font-style: normal;
     font-family: serif;
 }
+
+.about img {
+    max-width: 60%;
+    max-height: 70vh;
+}
