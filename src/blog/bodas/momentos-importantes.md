@@ -76,7 +76,7 @@ Podemos escoger desde una balada a un mix, y a partir de aquí empezar la barra 
 
 ## 4.- Discoteca
 
-Aquí se acepta casi todo y en el dj cae la gran responsabilidad de que los invitados se marchen diciendo: “Ha sido la mejor boda con diferencia”. Os dejo el link a otro artículo en el que hablé de [cómo elegir canciones para la discoteca de vuestra boda](https://djmarian.com/bodas/elegir-canciones-discoteca/).
+Aquí se acepta casi todo y en el dj cae la gran responsabilidad de que los invitados se marchen diciendo: “Ha sido la mejor boda con diferencia”. Os dejo el link a otro artículo en el que hablé de [cómo elegir canciones para la discoteca de vuestra boda](../elegir-canciones-discoteca/).
 
 ¿Te he ayudado con este artículo? Estaré encantada de responder tus comentarios o dudas. ¡Escríbeme más abajo!
 

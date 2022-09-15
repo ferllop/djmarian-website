@@ -34,6 +34,6 @@ Y en caso de regalar muñecos/novios o algún otro regalo a algún invitado, ¿q
 
 Teniendo respuesta a estas preguntas, estaréis en el buen camino para escoger las canciones que os acompañarán en el recuerdo de vuestra boda.
 
-Os dejo el link a otro artículo en el que escribo sobre [qué canciones elegir para cada momento de vuestra boda](https://djmarian.com/bodas/momentos-importantes/).
+Os dejo el link a otro artículo en el que escribo sobre [qué canciones elegir para cada momento de vuestra boda](../momentos-importantes/).
 
 ¿Os habéis hecho una idea de cómo afrontar la selección musical de vuestras nupcias? ¡Déja tus comentarios más abajo!
