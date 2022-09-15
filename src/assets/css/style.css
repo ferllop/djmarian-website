@@ -44,8 +44,6 @@ body {
 
 main {
     padding-bottom: 5em;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
     max-width: 60vw;
     margin: 0 auto;
     line-height: 1.5;
@@ -85,6 +83,7 @@ header {
     justify-content: space-around;
     padding-top: 2em;
     padding-bottom: 1.5em;
+    border-bottom: 1px solid;
 }
 
 header a {
@@ -116,6 +115,10 @@ header a {
 
 
 /*@ FOOTER */
+footer {
+    border-top: 1px solid;
+}
+
 footer li {
     line-height: 2;
 }
@@ -162,7 +165,6 @@ footer nav:not(:last-child) {
 }
 
 .one-of-many {
-    border: 1px black solid;
     border: 1px solid #8c8989;
     border-radius: 16px;
     margin: 50px 0;
