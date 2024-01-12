@@ -157,6 +157,20 @@ footer nav:not(:last-child) {
 }
 
 
+/*@ CONTACT PAGE */
+.contact-page {
+    text-align: start;
+}
+
+.contact-page ul {
+    padding-left: 1em;
+}
+
+.contact-page li {
+    list-style-type: disc;
+}
+
+
 /*@ REVIEWS */
 .review {
     text-align: start;
@@ -248,4 +262,18 @@ video a:hover {
 }
 .related-articles li {
     list-style-type: disc;
+}
+
+/*@ CONTACT FORM */
+.contact-page form {
+    display: grid;
+    grid-gap: 1em;
+    grid-template:
+            "a a"
+            "c c"
+            "d d";
+}
+
+input {
+    padding: .5em 1em;
 }
