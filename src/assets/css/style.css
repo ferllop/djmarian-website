@@ -264,16 +264,3 @@ video a:hover {
     list-style-type: disc;
 }
 
-/*@ CONTACT FORM */
-.contact-page form {
-    display: grid;
-    grid-gap: 1em;
-    grid-template:
-            "a a"
-            "c c"
-            "d d";
-}
-
-input {
-    padding: .5em 1em;
-}
