@@ -29,4 +29,13 @@ Divertida, camaleónica y versátil pero ante todo profesional y con experiencia
 
 Se escuchar, recomendar y por supuesto ¡pinchar!
 
+Y si no tengo sitio en mi agenda, ¡no te preocupes!
+
+Mis años de experiencia en eventos de todo tipo me han permitido tejer una amplia red de contactos con muchas otras personas que viven su profesión de dj o artista de la misma manera que yo lo hago.
+
+Con discreción y profesionalidad.
+<br>Conociendo los protocolos existentes e investigando y adaptándose a los nuevos.
+<br>Escuchando música, mucha música. Géneros de todas las décadas, para todas las edades y de todas las partes del mundo.
+
+Discjockeys que saben estar, tranquilidad para mis clientes.
 
