@@ -183,7 +183,7 @@ footer nav:not(:last-child) {
 .review {
     text-align: start;
     margin: 0 auto;
-    width: 800px;
+    width: 80vw;
 }
 
 .one-of-many {
