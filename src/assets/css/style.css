@@ -17,6 +17,10 @@ li {
     list-style-type: none;
 }
 
+body {
+    margin: 0;
+}
+
 
 /*@ GENERAL */
 :root {
@@ -38,7 +42,7 @@ html {
 }
 
 body {
-    margin: 21px;
+    margin: min(21px, 1vw);
     background: var(--background);
 }
 
@@ -70,18 +74,17 @@ a:hover {
 }
 
 .main-wrapper {
-    padding-left: var(--layout-margin);
-    padding-right: var(--layout-margin);
+    padding-left: 5vw;
+    padding-right: 5vw;
     text-align: center;
 }
-
 
 /*@ HEADER */
 header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding-top: 2em;
+    padding-top: min(5vw, 2em);
     padding-bottom: 1.5em;
     border-bottom: 1px solid;
 }
@@ -263,4 +266,11 @@ video a:hover {
 .related-articles li {
     list-style-type: disc;
 }
+
+@media only screen and (max-width: 500px){
+    body {
+        margin: 0;
+    }
+}
+
 
