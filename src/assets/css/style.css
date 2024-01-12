@@ -73,6 +73,10 @@ a:hover {
     text-decoration: none;
 }
 
+img{
+    width: 80%;
+}
+
 .main-wrapper {
     padding-left: 5vw;
     padding-right: 5vw;
