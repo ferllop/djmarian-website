@@ -99,6 +99,23 @@ header a {
 
 
 /*@ SITE MENU */
+djm-menu {
+    margin-top: 0.5em;
+}
+
+djm-menu details[open] summary {
+    width: fit-content;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.hide-summary summary {
+    display: none;
+}
+
 .site-menu nav {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -155,6 +172,10 @@ footer nav:not(:last-child) {
     line-height: 2;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.speech img {
+    max-width: 400px;
 }
 
 
