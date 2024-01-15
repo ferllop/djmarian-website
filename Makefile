@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 npm:
-	docker-compose run node \
+	docker-compose -f build.compose.yml run node \
 	npm -- \
 	$(filter-out $@,$(MAKECMDGOALS))
 
