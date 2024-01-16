@@ -6,6 +6,7 @@ deployProduction(){
   echo "Deploying production..."
   docker compose -f ../build.compose.yml run --rm node npm ci
   docker compose -f ../build.compose.yml run --rm node npm run build
+  docker compose --env-file=../.env -f production.compose.yml down
   docker compose --env-file=../.env -f production.compose.yml up -d
 }
 
