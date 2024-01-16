@@ -17,6 +17,7 @@
     "build:serve": "npm run build -- --serve",
     "build:watch": "npm run build -- --watch",
     "serve": "web-dev-server --root-dir ./build --node-resolve --open --watch",
+    "deploy": "git push production main",
     "//------TESTING-----": "",
     "test": "web-test-runner test/**/*.test.js --node-resolve",
     "test:watch": "npm run test -- --watch"
