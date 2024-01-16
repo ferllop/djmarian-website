@@ -1,7 +1,7 @@
 {
   "name": "djmarian-eleventy-website",
-  "description": "## Installation Clone this project and inside its root directory run:",
-  "version": "0.0.1",
+  "description": "Dj Marian website",
+  "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
     "@11ty/eleventy": "1.0.1",
@@ -29,13 +29,13 @@
     "website",
     "eleventy"
   ],
-  "author": "contacto@ferranllop.com",
+  "author": "ferran@misterbit.es",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ferllop/djmarian-website/issues"
   },
   "homepage": "https://github.com/ferllop/djmarian-website#readme",
   "dependencies": {
-    "eleventy-plugin-vimeo-embed": "^1.3.3"
+    "eleventy-plugin-vimeo-embed": "1.3.3"
   }
 }

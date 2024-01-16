@@ -12,7 +12,3 @@ Finally run:
 
     ./deploy.sh
 
-## Environment variables
-
- - APP_PORT: The port where the apache server container will be listening 
-
