@@ -215,11 +215,12 @@ footer nav:not(:last-child) {
 
 
 /*@ VIDEO */
-.video-wrapper {
+djm-video {
     position: relative;
+    display: block;
 }
 
-.video-wrapper .play-btn {
+djm-video .play-btn {
     display: block;
     position: absolute;
     z-index: 9;
@@ -239,7 +240,7 @@ footer nav:not(:last-child) {
     opacity: 0.7;
 }
 
-.play-btn .arrow {
+djm-video .play-btn .arrow {
     display: block;
     position: absolute;
     z-index: 10;
@@ -257,26 +258,26 @@ footer nav:not(:last-child) {
     border-left-color: #FFFFFF;
 }
 
-.video-wrapper:hover .play-btn, .video-wrapper:focus .play-btn {
+djm-video:hover .play-btn, djm-video:focus .play-btn {
   opacity: 0.9;
   transform: scale(1.1);
 }
 
-.video-wrapper:hover .play-btn {
+djm-video:hover .play-btn {
   opacity: 0.9;
 }
 
-video {
+djm-video {
     width: 100%;
 }
 
-video a {
+djm-video video a {
     color: var(--blue);
     text-transform: uppercase;
     text-decoration: none;
 }
 
-video a:hover {
+djm-video video a:hover {
     text-decoration: underline;
 }
 
