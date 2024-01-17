@@ -226,7 +226,7 @@ djm-video .play-btn {
     z-index: 9;
     top: 50%;
     left: 50%;
-    --size: clamp(70px, 9vw, 130px);
+    --size: clamp(70px, 8vw, 130px);
     margin-top: calc(-1 * (var(--size)/2));
     margin-left: calc(-1 * (var(--size)/2));
     width: var(--size);
