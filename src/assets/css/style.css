@@ -142,6 +142,7 @@ djm-menu details[open] summary {
 /*@ FOOTER */
 footer {
     border-top: 1px solid;
+    padding-botom: 1em;
 }
 
 footer li {
@@ -160,10 +161,8 @@ footer nav:not(:last-child) {
     padding-top: 2em;
 }
 
-.legal,
 .copyright {
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 1em;
 }
 
 
