@@ -225,10 +225,11 @@ footer nav:not(:last-child) {
     z-index: 9;
     top: 50%;
     left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
-    width: 100px;
-    height: 100px;
+    --size: clamp(70px, 9vw, 130px);
+    margin-top: calc(-1 * (var(--size)/2));
+    margin-left: calc(-1 * (var(--size)/2));
+    width: var(--size);
+    height: var(--size);
     border-radius: 100%;
     opacity: 0.5;
     transition: 
@@ -244,13 +245,15 @@ footer nav:not(:last-child) {
     z-index: 10;
     top: 50%;
     left: 50%;
-    margin-top: -17px;
-    margin-left: -9px;
     width: 0;
     height: 0;
-    border-top: 18px solid transparent;
-    border-bottom: 18px solid transparent;
-    border-left: 26px solid transparent;
+    --arrow-height: calc(var(--size) / 4);
+    --arrow-width: calc(var(--size) / 4 + 1vw);
+    margin-top: calc(-1 * (var(--arrow-height)));
+    margin-left: calc((var(--arrow-width) / 1.6) - var(--arrow-width));
+    border-top: var(--arrow-height) solid transparent;
+    border-bottom: var(--arrow-height) solid transparent;
+    border-left: var(--arrow-width) solid transparent;
     border-left-color: #FFFFFF;
 }
 
