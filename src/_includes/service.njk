@@ -2,12 +2,13 @@
 layout: base.njk
 ctoMessage: '¡CONSIGUE AHORA TU PRESUPUESTO!'
 ---
+
 <img src="/assets/images/{{coverImage}}" />
 
-{{ content | safe }}
+<article>
+	{{ content | safe }}
+</article>
 
 {% include 'partials/contact-cto.njk' %}
-
 {% include 'partials/one-review.njk' %}
-
 {% include 'partials/related-articles.njk' %}

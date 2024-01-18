@@ -3,18 +3,17 @@ layout: base.njk
 ctoMessage: '¡CONTACTA CONMIGO!'
 ---
 
-<section>
-    {% include 'partials/video.njk' %}
-</section>
+<article>
+	<section>
+		{% include 'partials/video.njk' %}
+	</section>
 
-<section class="speech">
-    {{ content | safe }}
-</section>
+	<section class="speech">
+		{{ content | safe }}
+	</section>
+</article>
 
 {% include 'partials/contact-cto.njk' %}
-
 {% include 'partials/services-gallery.njk' %}
-
-
 {% include 'partials/one-review.njk' %}
 
