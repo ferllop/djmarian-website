@@ -3,6 +3,6 @@ services:
   node:
     image: node:21-alpine
     working_dir: /app
-    user: ${NODE_USER}
+    user: ${NODE_USER:?}
     volumes:
-      - ./:/app
+      - ../:/app

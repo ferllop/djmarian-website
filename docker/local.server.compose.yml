@@ -1,0 +1,4 @@
+services:
+  apache:
+    ports:
+      - ${LOCAL_PORT:?}:80

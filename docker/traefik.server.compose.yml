@@ -1,21 +1,14 @@
-version: "3.9"
 services:
   apache:
-    image: httpd:2.4.52-alpine
-    container_name: djmarian_web
-    restart: ${APACHE_RESTART:?}
-    volumes:
-      - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
-      - ../build:/usr/local/apache2/htdocs
     labels:
       - traefik.enable=true
       - traefik.http.services.djmarian-wp.loadbalancer.server.port=80
       - traefik.http.routers.djmarian-wp.entrypoints=web
-      - traefik.http.routers.djmarian-wp.rule=Host(${FQDN:?})
+      - traefik.http.routers.djmarian-wp.rule=Host(${TRAEFIK_FQDN:?})
       - traefik.http.middlewares.djmarian-wp-https-redirect.redirectscheme.scheme=https
       - traefik.http.routers.djmarian-wp.middlewares=djmarian-wp-https-redirect
       - traefik.http.routers.djmarian-wp-secure.entrypoints=web-secure
-      - traefik.http.routers.djmarian-wp-secure.rule=Host(${FQDN:?})
+      - traefik.http.routers.djmarian-wp-secure.rule=Host(${TRAEFIK_FQDN:?})
       - traefik.http.routers.djmarian-wp-secure.tls=true
       - traefik.http.routers.djmarian-wp-secure.tls.certresolver=letsencrypt
     networks:

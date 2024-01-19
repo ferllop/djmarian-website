@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  apache:
+    image: httpd:2.4.52-alpine
+    container_name: djmarian_web
+    restart: ${APACHE_RESTART:?}
+    volumes:
+      - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ../build:/usr/local/apache2/htdocs
