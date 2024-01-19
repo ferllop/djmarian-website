@@ -25,6 +25,10 @@ body {
 /*@ GENERAL */
 :root {
     --layout-margin: 4em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
     --primary-text-color: rgb(55, 55, 55);
     --heading-text-color: rgb(26 26 26);
     --frame-color: rgb(10 10 10);
@@ -33,6 +37,20 @@ body {
     --red: #bc3315;
     --red-dark: #942911;
     --background: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-text-color: rgb(200, 200, 200);
+    --heading-text-color: rgb(226, 226, 226);
+    --frame-color: rgb(10 10 10);
+    --cto-text: #000;
+    --blue: #e7cc0f;
+    --red: #bc3315;
+    --red-dark: #942911;
+    --background: #000;
+  }
 }
 
 html {
@@ -97,6 +115,11 @@ header a {
     display: block;
 }
 
+@media (prefers-color-scheme: dark) {
+    header img {
+        filter: invert(0.9);
+    }
+}
 
 /*@ SITE MENU */
 djm-menu {
@@ -136,6 +159,7 @@ djm-menu details[open] summary {
 
 .site-menu a:hover {
     color: var(--blue);
+    text-decoration: underline;
 }
 
 
@@ -211,6 +235,14 @@ footer nav:not(:last-child) {
     border-radius: 16px;
     margin: 50px 0;
     padding: 10px 20px;
+}
+
+.review a {
+    text-decoration: none;
+}
+
+.review a:hover {
+    text-decoration: underline;
 }
 
 
@@ -295,6 +327,12 @@ djm-video video a:hover {
     line-height: 1.75;
     text-decoration: none;
     cursor: pointer;
+    transition: transform .5s ease;
+}
+
+.cto a:hover {
+    transform: scale(1.1);
+    transition: transform .5s ease;
 }
 
 
@@ -325,8 +363,19 @@ djm-video video a:hover {
 .services-gallery li {
     --border-radius: 8px;
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+    .services-gallery li {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .services-gallery li {
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);
+    }
 }
 
 .services-gallery img {
