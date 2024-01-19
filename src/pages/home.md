@@ -20,7 +20,7 @@ Quizás te encuentres en una de las siguientes situaciones:
 
 **¡ME NECESITAS!**
 
-![Dj Marian sonriendo](/assets/images/sonrie.webp)
+<img loading="lazy" src="/assets/images/sonrie.webp" alt="Dj Marian sonriendo">
 
 Yo haré que puedas relajarte y disfrutar... ¡si te dejan, jajaja!
 
