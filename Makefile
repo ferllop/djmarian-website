@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 deploy:
-	echo "Deploying..."
+	@echo "Deploying..."
 	git push production main
 
 %:

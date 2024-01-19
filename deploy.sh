@@ -6,8 +6,9 @@ cd docker
 print() {
   echo -e "\n\n### $1 ###\n"
 }
+
 deployProduction(){
-  print "Deploying production"
+  echo -e "\nDeploying production"
 
   print "Stopping previous server"
   docker compose --env-file=../.env -f server.compose.yml -f ./traefik.server.compose.yml down
