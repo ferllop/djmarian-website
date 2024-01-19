@@ -1,5 +1,6 @@
 ---
 title: "DJ para fiestas privadas"
+metaDescription: "Soy Marian, discjockey especializada en fiestas privadas. Servicio 100% personalizado, exclusivo y absolutamente confidencial. Equipo audiovisual propio."
 coverImage: "StockSnap_L6BUD1V0U3.jpg"
 serviceType: "fiestas-privadas"
 ---

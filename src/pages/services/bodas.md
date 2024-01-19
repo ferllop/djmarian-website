@@ -1,5 +1,6 @@
 ---
 title: DJ para vuestra boda
+metaDescription: "Soy Marian, discjockey freelance especializada en bodas. Experiencia y profesionalidad. Servicio totalmente personalizado. Equipo audiovisual propio."
 coverImage: "StockSnap_3WT2P2M9KM.jpg"
 serviceType: "bodas"
 ---

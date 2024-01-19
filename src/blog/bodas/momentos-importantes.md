@@ -1,5 +1,6 @@
 ---
 title: "¿Que canciones elegir para cada momento de mi boda?"
+metaDescription: "Las 4 partes en las que un dj divide una boda suelen ser: Ceremonia, aperitivo, banquete, baile. ➜ Si estás preparando tus nupcias no te pierdas este artículo."
 date: "2017-03-26"
 coverImage: "ceremonia-boda-playa.jpg"
 ---

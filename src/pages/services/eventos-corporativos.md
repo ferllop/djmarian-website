@@ -1,5 +1,6 @@
 ---
 title: "DJ para eventos corporativos"
+metaDescription: "Soy Marian, dj freelance especializada en eventos corporativos. Experiencia y profesionalidad. Servicio totalmente personalizado. Equipo audiovisual propio."
 coverImage: "evento-corporativo-ambiente-rosa.jpg"
 serviceType: "eventos-corporativos"
 ---

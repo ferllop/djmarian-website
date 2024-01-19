@@ -1,5 +1,6 @@
 ---
 title: "¿Buscas DJ para tu boda? Aquí tienes 8 preguntas con respuesta"
+metaDescription: "En este artículo dejo plasmadas las preguntas (y mis respuestas) que más suelen hacerme los clientes antes de contratarme para su boda."
 date: "2017-11-21"
 coverImage: "interrogante.jpg"
 ---

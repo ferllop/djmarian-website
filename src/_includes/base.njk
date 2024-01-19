@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	{% if metaDescription %}
+		<meta name="description" content="{{metaDescription}}">
+	{% endif %}
+
     <link rel="canonical" href="https://djmarian.com{{ page.url }}">
     <link rel="icon" href="/assets/images/cropped-granfavicon-150x150.png" sizes="32x32">
     <link rel="icon" href="/assets/images/cropped-granfavicon-275x275.png" sizes="192x192">

@@ -1,5 +1,6 @@
 ---
 title: "¿¡Cómo!? Elegir canciones para la discoteca de tu boda"
+metaDescription: "¿Organizando vuestra boda? Tenéis unas 3 horas de barra libre contratada y queréis que el DJ ponga vuestra música favorita ➜ Esta es una guía de como afrontarlo."
 date: "2017-11-21"
 coverImage: "bola-discoteca.jpg"
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Escoger las canciones de protocolo para tu boda"
+metaDescription: "Ceremonia, aperitivo, entrega de regalos, sorpresas... ¿Qué canciones elegir para cada momento de tu boda? → Aquí te dejo una guía."
 date: "2017-05-05"
 coverImage: "bolo2.jpg"
 ---

@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 title: ¿Quién soy?
+metaDescription: "Con la música de principio a fin. De coreógrafa a discjockey. 20 años ya en esta profesión. ¡Y los que me quedan!"
 ---
 <div class="about"> 
 

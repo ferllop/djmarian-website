@@ -1,5 +1,6 @@
 ---
 title: "Mezclas Personalizadas"
+metaDescription: "¿Buscas tener una mezcla de varias canciones para tu actuación, fiesta o evento? Conoce mis servicios. ✔Presupuesto y servicio personalizados."
 coverImage: "pexels-photo-225226.jpeg"
 serviceType: "mezclas-personalizadas"
 ---
