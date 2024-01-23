@@ -94,6 +94,10 @@ img{
     width: 80%;
 }
 
+.fully-hidden {
+    display: none;
+}
+
 .main-wrapper {
     padding-left: 5vw;
     padding-right: 5vw;
@@ -242,7 +246,8 @@ djm-video {
     display: block;
 }
 
-djm-video .play-btn {
+djm-video button {
+    border: 0;
     display: block;
     position: absolute;
     z-index: 9;
@@ -262,8 +267,9 @@ djm-video .play-btn {
     opacity: 0.7;
 }
 
-djm-video .play-btn .arrow {
+djm-video button::after {
     display: block;
+    content: "";
     position: absolute;
     z-index: 10;
     top: 50%;
@@ -280,12 +286,12 @@ djm-video .play-btn .arrow {
     border-left-color: #FFFFFF;
 }
 
-djm-video:hover .play-btn, djm-video:focus .play-btn {
+djm-video:hover button, djm-video:focus button {
   opacity: 0.9;
   transform: scale(1.1);
 }
 
-djm-video:hover .play-btn {
+djm-video:hover button {
   opacity: 0.9;
 }
 
