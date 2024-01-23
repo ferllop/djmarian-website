@@ -118,6 +118,10 @@ header a {
     display: block;
 }
 
+header .logo a:hover {
+    opacity: 1;
+}
+
 @media (prefers-color-scheme: dark) {
     header img {
         filter: invert(0.9);
