@@ -97,26 +97,23 @@ export class Review extends HTMLElement {
     }
 
     #renderOneReview(review) {
+        const renderStars = rating => {
+            const star = '<span class="star"></span>'
+            return Array(rating).fill(star)
+        }
+
         this.shadowRoot.querySelector('div').innerHTML = `
             <article class="review"
                     data-rating="${review.rating}"
                     data-source="${review.source}">
                 <section class="name">${review.name}</section>
                 <section class="rating">
-                    ${this.#renderStars(review.rating)}
+                    ${renderStars(review.rating)}
                 </section>
                 <section class="content">
                     <blockquote>${review.content}</blockquote>
                 </section>
         </article>`
-    }
-
-    #renderStars(rating) {
-        let result = ''
-        for (let i = 0; i < rating; i++) {
-            result += `<span class="star"></span>`
-        }
-        return result
     }
 }
 

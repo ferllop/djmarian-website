@@ -1,3 +1,7 @@
+const getRandomNumberBetween = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min
+}
+
 export class ReviewsCollection {
     #reviews = []
 
@@ -6,9 +10,7 @@ export class ReviewsCollection {
     }
 
     async getRandomReview() {
-        const min = 0
-        const max = await this.reviewsQuantity() - 1
-        const randomIndex = Math.floor(Math.random() * (max - min)) + min
+        const randomIndex = getRandomNumberBetween(0, await this.reviewsQuantity() - 1)
         return this.getReview(randomIndex)
     }
 
