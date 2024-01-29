@@ -90,8 +90,9 @@ a:hover {
     opacity: 0.6;
 }
 
-img{
-    width: 80%;
+img {
+    max-width: 80vw;
+    max-height: 70vh;
 }
 
 .fully-hidden {
@@ -205,13 +206,6 @@ footer nav:not(:last-child) {
 
 .speech img {
     max-width: 300px;
-}
-
-
-/*@ ABOUT PAGE */
-.about img {
-    max-width: 60%;
-    max-height: 70vh;
 }
 
 
