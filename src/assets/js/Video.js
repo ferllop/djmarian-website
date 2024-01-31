@@ -1,24 +1,48 @@
 export class Video extends HTMLElement {
     constructor() {
         super()
-        const videoEl = this.querySelector('video')
-        const playBtn = document.createElement('button')
-        playBtn.addEventListener('click', () => videoEl.play())
-        videoEl.addEventListener('click', () => videoEl.play())
-        videoEl.addEventListener('play', () => {
-            if (this.hasPlayButton) {
-                this.removeChild(playBtn)
-                this.hasPlayButton = false
-            }
-            videoEl.setAttribute('controls', true)
-        })
-        this.videoEl = videoEl
-        this.playBtn = playBtn
-        this.hasPlayButton = true
+        this.videoEl = this.removeNativeVideoControls()
+        this.playBtn = this.addPlayButton(this)
+    }
+
+    removeNativeVideoControls() {
+        const video = this.querySelector('video')
+        video.removeAttribute('controls')
+        return video
+    }
+
+    addPlayButton(el) {
+        const play = document.createElement('button')
+        el.appendChild(play)
+        return play
     }
 
     connectedCallback() {
-        this.appendChild(this.playBtn)
-        this.videoEl.removeAttribute('controls')
+        this.addEventListener('click', this)
+        this.videoEl.addEventListener('play', this)
+    }
+
+    disconnectedCallback() {
+        this.removeEventListener('click', this)
+        this.videoEl.removeEventListener('play', this)
+    }
+
+    handleEvent(event) {
+        this[`handle${event.type}`](event)
+    }
+
+    handleclick() {
+        this.videoEl.play()
+    }
+
+    handleplay() {
+        this.hidePlayButton()
+        this.videoEl.setAttribute('controls', true)
+    }
+
+    hidePlayButton() {
+        this.contains(this.playBtn)
+            ? this.removeChild(this.playBtn)
+            : this.hasPlayButton = false
     }
 }
