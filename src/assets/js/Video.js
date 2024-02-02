@@ -64,6 +64,7 @@ export class Video extends HTMLElement {
                 width: 100%;
                 cursor: pointer;
             }
+
             button {
                 border: 0;
                 display: block;
@@ -77,7 +78,6 @@ export class Video extends HTMLElement {
                 width: var(--size);
                 height: var(--size);
                 border-radius: 100%;
-                opacity: 0.5;
                 transition: 
                     opacity 0.3s ease,
                     transform 0.3s ease;
