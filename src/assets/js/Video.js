@@ -57,7 +57,13 @@ export class Video extends HTMLElement {
     loadShadowCSS() {
         const sheet = new CSSStyleSheet();
         sheet.replaceSync(
-            `button {
+            `:host {
+                position: relative;
+                display: block;
+                width: 100%;
+                cursor: pointer;
+            }
+            button {
                 border: 0;
                 display: block;
                 position: absolute;

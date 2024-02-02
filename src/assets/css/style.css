@@ -239,13 +239,6 @@ footer nav:not(:last-child) {
 
 
 /*@ VIDEO */
-djm-video {
-    position: relative;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-}
-
 djm-video video a {
     text-transform: uppercase;
     text-decoration: none;
