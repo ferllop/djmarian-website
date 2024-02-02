@@ -99,7 +99,7 @@ export class Review extends HTMLElement {
     #renderOneReview(review) {
         const renderStars = rating => {
             const star = '<span class="star"></span>'
-            return Array(rating).fill(star)
+            return Array(rating).fill(star).join('')
         }
 
         this.shadowRoot.querySelector('div').innerHTML = `
