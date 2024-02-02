@@ -17,6 +17,7 @@ export class Video extends HTMLElement {
 
     addPlayButton(el) {
         const play = document.createElement('button')
+        play.setAttribute('aria-label', 'reproducir video')
         el.appendChild(play)
         return play
     }
