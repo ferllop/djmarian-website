@@ -8,7 +8,7 @@ services:
       - REVIEWS_DOMAIN_NAME=${REVIEWS_CONTAINER_NAME:?}
     volumes:
       - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
-      - ../build:/usr/local/apache2/htdocs
+      - ../website/build:/usr/local/apache2/htdocs
 
   reviews:
     image: node:21-alpine

@@ -5,4 +5,4 @@ services:
     working_dir: /app
     user: ${NODE_USER:?}
     volumes:
-      - ../:/app
+      - ../website:/app
