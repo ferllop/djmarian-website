@@ -1,23 +1,7 @@
 import express from 'express'
+import reviews from './reviews.json' assert { type: 'json' };
 
 const app = express()
-
-const reviews = [
-	{
-		id: 0,
-		source: 'Google',
-		rating: 5,
-		name: 'First Review',
-		content: 'This is first review',
-	},
-	{
-		id: 1,
-		source: 'Google',
-		rating: 4,
-		name: 'Second Review',
-		content: 'This is second review',
-	},
-]
 
 app.get('/random', (req, res) => {
 	const index = 0
