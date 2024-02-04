@@ -5,6 +5,7 @@ services:
     container_name: ${WEB_CONTAINER_NAME:?}
     restart: ${CONTAINERS_RESTART_POLICY:?}
     environment:
+      - ENVIRONMENT=${ENVIRONMENT:?}
       - REVIEWS_DOMAIN_NAME=${REVIEWS_CONTAINER_NAME:?}
     volumes:
       - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
