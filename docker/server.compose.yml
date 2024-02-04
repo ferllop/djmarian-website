@@ -2,8 +2,27 @@ version: "3.9"
 services:
   apache:
     image: httpd:2.4.52-alpine
-    container_name: ${CONTAINER_WEB:?}
-    restart: ${APACHE_RESTART:?}
+    container_name: ${WEB_CONTAINER_NAME:?}
+    restart: ${CONTAINERS_RESTART_POLICY:?}
+    environment:
+      - REVIEWS_DOMAIN_NAME=${REVIEWS_CONTAINER_NAME:?}
     volumes:
       - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ../build:/usr/local/apache2/htdocs
+
+  reviews:
+    image: node:21-alpine
+    container_name: ${REVIEWS_CONTAINER_NAME:?}
+    hostname: reviews
+    restart: ${CONTAINERS_RESTART_POLICY:?}
+    user: ${NODE_USER:?}
+    working_dir: /app
+    environment:
+      - NODE_ENV=${ENVIRONMENT:?}
+    volumes:
+      - ../reviews:/app
+    command: "npm start"
+
+networks:
+  default:
+    name: djmarian_internal
