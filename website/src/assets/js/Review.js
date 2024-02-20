@@ -9,7 +9,7 @@ template.innerHTML =
 </article>`
 
 export class Review extends HTMLElement {
-    set model(model) {
+    update(model) {
         const renderStars = rating => {
             const star = '<span class="star"></span>'
             return Array(rating).fill(star).join('')
@@ -49,7 +49,7 @@ export class RandomReview extends HTMLElement {
     async connectedCallback() {
         const reviewEl = document.createElement('djm-review')
         const review = await ReviewsService.getRandomReview()
-        reviewEl.model = review
+        reviewEl.update(review)
         this.replaceChildren(reviewEl)
     }
 }
@@ -67,7 +67,7 @@ export class AllReviews extends HTMLElement {
         const reviews = await ReviewsService.getAllReviews()
         this.replaceChildren(...reviews.map(review => { 
             const reviewEl = document.createElement('djm-review')
-            reviewEl.model = review
+            reviewEl.update(review)
             const wrapper = document.createElement('div')
             wrapper.classList.add('one-of-many')
             wrapper.appendChild(reviewEl)
