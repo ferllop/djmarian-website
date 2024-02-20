@@ -230,17 +230,14 @@ footer nav:not(:last-child) {
     width: 80vw;
 }
 
-.one-of-many {
-    border: 1px solid #8c8989;
-    border-radius: 16px;
-    margin: 50px 0;
-    padding: 10px 20px;
+djm-review {
+    display: block;
 }
 
 djm-review article {
     text-align: start;
     max-width: 800px;
-    margin: 0 auto;
+    margin-left: 2vw;
 }
 
 djm-review .star {
@@ -283,16 +280,22 @@ djm-review .content {
     border: none;
 }
 
+djm-review .content blockquote {
+    margin: 0;
+    margin-left: 2vw;
+}
+
 djm-review .source {
     font-size: 1em;
     font-weight: bold;
     padding-bottom: 10px;
 }
 
-@media screen and (max-width: 570px) {
-    djm-review .content {
-        padding-left:0;
-    }
+djm-all-reviews li {
+    border: 1px solid #8c8989;
+    border-radius: 16px;
+    margin: 50px 0;
+    padding: 10px 20px;
 }
 
 

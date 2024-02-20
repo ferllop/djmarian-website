@@ -47,8 +47,8 @@ export class RandomReview extends HTMLElement {
     }
 
     async connectedCallback() {
-        const reviewEl = document.createElement('djm-review')
         const review = await ReviewsService.getRandomReview()
+        const reviewEl = document.createElement('djm-review')
         reviewEl.update(review)
         this.replaceChildren(reviewEl)
     }
@@ -60,18 +60,21 @@ export class AllReviews extends HTMLElement {
         if (!customElements.get('djm-review')) {
             customElements.define('djm-review', Review)
         }
+        this.ulEl = document.createElement('ul')
+        this.replaceChildren(this.ulEl)
     }
 
     async connectedCallback() {
-        this.replaceChildren()
         const reviews = await ReviewsService.getAllReviews()
-        this.replaceChildren(...reviews.map(review => { 
-            const reviewEl = document.createElement('djm-review')
-            reviewEl.update(review)
-            const wrapper = document.createElement('div')
-            wrapper.classList.add('one-of-many')
-            wrapper.appendChild(reviewEl)
-            return wrapper
-        }))
+        this.ulEl.replaceChildren(...reviews.map(this.renderItem))
+    }
+
+    renderItem(review) {
+        const reviewEl = document.createElement('djm-review')
+        reviewEl.classList.add('list-item')
+        reviewEl.update(review)
+        const liEl = document.createElement('li')
+        liEl.appendChild(reviewEl)
+        return liEl
     }
 }
