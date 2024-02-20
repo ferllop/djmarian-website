@@ -7,6 +7,9 @@ async function defineIfPresent(path, tag, klass) {
     }
 }
 
-defineIfPresent('./Video.js', 'djm-video', 'Video') 
-defineIfPresent('./Review.js', 'djm-review', 'Review')
+defineIfPresent('./Video.js', 'djm-video', 'Video')
+// defineIfPresent('./Review.js', 'djm-review', 'Review')
+defineIfPresent('./Review.js', 'djm-random-review', 'RandomReview')
+defineIfPresent('./Review.js', 'djm-all-reviews', 'AllReviews')
+
 customElements.define('djm-menu', Menu) 
