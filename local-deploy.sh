@@ -36,7 +36,7 @@ deployDevelopment(){
   print "Starting server"
   docker compose --env-file=../.env -f server.compose.yml -f local.server.compose.yml up -d
 
-  print "Serving on http://localhost:$LOCAL_PORT"
+  print "Serving on http://localhost:$APACHE_LOCAL_PORT"
 }
 
 case $ENVIRONMENT in
