@@ -9,16 +9,24 @@ template.innerHTML =
 </article>`
 
 export class Review extends HTMLElement {
+    constructor() {
+        super()
+        this.dom = template.content.cloneNode(true)
+        this.article = this.dom.querySelector('article')
+        this.author = this.dom.querySelector('.author')
+        this.rating = this.dom.querySelector('.rating')
+        this.content = this.dom.querySelector('.content blockquote')
+    }
+    
+    connectedCallback() {
+        this.replaceChildren(this.dom)
+    }
+
     update(model) {
         const renderStars = rating => {
             const star = '<span class="star"></span>'
             return Array(rating).fill(star).join('')
         }
-        this.replaceChildren(template.content.cloneNode(true))
-        this.article = this.querySelector('article')
-        this.author = this.querySelector('.author')
-        this.rating = this.querySelector('.rating')
-        this.content = this.querySelector('.content blockquote')
         this.article.setAttribute('id', model.id) 
         this.article.setAttribute('source', model.source)
         this.author.textContent = model.name
@@ -66,10 +74,10 @@ export class AllReviews extends HTMLElement {
 
     async connectedCallback() {
         const reviews = await ReviewsService.getAllReviews()
-        this.ulEl.replaceChildren(...reviews.map(this.renderItem))
+        this.ulEl.replaceChildren(...reviews.map(this.renderListItem))
     }
 
-    renderItem(review) {
+    renderListItem(review) {
         const reviewEl = document.createElement('djm-review')
         reviewEl.classList.add('list-item')
         reviewEl.update(review)
