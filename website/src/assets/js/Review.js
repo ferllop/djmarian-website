@@ -19,7 +19,6 @@ export class Review extends HTMLElement {
     }
     
     connectedCallback() {
-        this.replaceChildren(this.dom)
     }
 
     update(model) {
@@ -33,18 +32,31 @@ export class Review extends HTMLElement {
         this.rating.innerHTML = renderStars(model.rating)
         this.rating.setAttribute('aria-label', model.rating)
         this.content.textContent = model.content
+        this.replaceChildren(this.dom)
     }
 }
 
-const ReviewsService = {
-    async getAllReviews() {
-        return fetch('/all-reviews').then(res => res.json())
-    },
+const ReviewsService = (function() {
+    const isOk = (httpCode) => httpCode < 400
 
-    async getRandomReview() {
-        return fetch('/random-review').then(res => res.json())
+    return {
+        async getAllReviews() {
+            return fetch('/all-reviews')
+                .then(res => 
+                    isOk(res.status) 
+                        ? res.json() 
+                        : Promise.resolve([]))
+        },
+
+        async getRandomReview() {
+            return fetch('/random-review')
+                .then(res => 
+                    isOk(res.status) 
+                        ? res.json()
+                        : Promise.resolve(null))
+        }
     }
-}
+})()
 
 export class RandomReview extends HTMLElement {
     constructor() {
@@ -56,9 +68,12 @@ export class RandomReview extends HTMLElement {
 
     async connectedCallback() {
         const review = await ReviewsService.getRandomReview()
-        const reviewEl = document.createElement('djm-review')
-        reviewEl.update(review)
-        this.replaceChildren(reviewEl)
+        console.log(review)
+        if (review !== null) {
+            const reviewEl = document.createElement('djm-review')
+            reviewEl.update(review)
+            this.replaceChildren(reviewEl)
+        }
     }
 }
 
@@ -74,7 +89,9 @@ export class AllReviews extends HTMLElement {
 
     async connectedCallback() {
         const reviews = await ReviewsService.getAllReviews()
-        this.ulEl.replaceChildren(...reviews.map(this.renderListItem))
+        if (reviews.length > 0) {
+            this.ulEl.replaceChildren(...reviews.map(this.renderListItem))
+        }
     }
 
     renderListItem(review) {
