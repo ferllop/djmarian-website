@@ -1,8 +1,15 @@
 version: "3.9"
 services:
-  node:
+  build_website:
     image: node:21-alpine
     working_dir: /app
     user: ${NODE_USER:?}
     volumes:
       - ../website:/app
+
+  build_reviews:
+    image: node:21-alpine
+    working_dir: /app
+    user: ${NODE_USER:?}
+    volumes:
+      - ../reviews:/app

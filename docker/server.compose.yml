@@ -7,6 +7,7 @@ services:
     environment:
       - ENVIRONMENT=${ENVIRONMENT:?}
       - REVIEWS_DOMAIN_NAME=${REVIEWS_CONTAINER_NAME:?}
+      - REVIEWS_LOCAL_PORT=${REVIEWS_LOCAL_PORT:?}
     volumes:
       - ./apache/full-httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ../website/build:/usr/local/apache2/htdocs
