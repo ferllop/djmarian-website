@@ -22,5 +22,5 @@ app.get('/all', (req, res) => {
 })
 
 
-const port = 3000
+const port = process.env.REVIEWS_LOCAL_PORT || 3000
 app.listen(port, () => console.log(`Reviews service listening on port ${port}...\n`))

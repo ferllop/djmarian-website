@@ -21,6 +21,7 @@ services:
     working_dir: /app
     environment:
       - NODE_ENV=${ENVIRONMENT:?}
+      - REVIEWS_LOCAL_PORT=${REVIEWS_LOCAL_PORT:?}
     volumes:
       - ../reviews:/app
     command: "npm start"
