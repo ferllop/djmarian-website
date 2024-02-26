@@ -57,7 +57,7 @@ export const DefaultReviewsService = (function() {
     }
 })()
 
-export const RandomReview = (reviewTagName, fetchRandomReviewFunction = DefaultReviewsService.getRandomReview(fetch)) => 
+export const RandomReview = (reviewTagName, fetchRandomReviewFunction) => 
     class extends HTMLElement {
     constructor() {
         super()
@@ -76,21 +76,21 @@ export const RandomReview = (reviewTagName, fetchRandomReviewFunction = DefaultR
     }
 }
 
-export const AllReviews = (reviewTagName, fetchAllReviewsFunction = DefaultReviewsService.getAllReviews(fetch)) => 
+export const AllReviews = (reviewTagName, fetchAllReviewsFunction) => 
     class extends HTMLElement {
     constructor() {
         super()
         if (!customElements.get(reviewTagName)) {
             customElements.define(reviewTagName, Review)
         }
-        this.ulEl = document.createElement('ul')
-        this.replaceChildren(this.ulEl)
     }
 
     async connectedCallback() {
         const reviews = await fetchAllReviewsFunction()
         if (reviews.length > 0) {
+            this.ulEl = document.createElement('ul')
             this.ulEl.replaceChildren(...reviews.map(this.renderListItem.bind(this)))
+            this.replaceChildren(this.ulEl)
         }
     }
 

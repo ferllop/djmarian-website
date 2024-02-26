@@ -1,20 +1,14 @@
 import {Menu} from './Menu.js'
-import { RandomReview } from './Review.js'
 
-async function defineIfPresent(path, tag, klass, ...args) {
+async function defineIfPresent(tag, path, f) {
     if (document.querySelector(tag)) {
         const file = await import(path)
-        if (args) {
-            customElements.define(tag, file[klass](...args))
-        } else {
-            customElements.define(tag, file[klass])
-        }
+        customElements.define(tag, f(file))
     }
 }
 
-defineIfPresent('./Video.js', 'djm-video', 'Video')
-defineIfPresent('./Review.js', 'djm-random-review', 'RandomReview', 'djm-review')
-// defineIfPresent('./Review.js', 'djm-random-review', 'RandomReview')
-defineIfPresent('./Review.js', 'djm-all-reviews', 'AllReviews', 'djm-review')
+defineIfPresent('djm-video', './Video.js', file => file['Video'])
+defineIfPresent('djm-random-review', './Review.js', file => file['RandomReview']('djm-review', file['DefaultReviewsService'].getRandomReview(fetch)))
+defineIfPresent('djm-all-reviews', './Review.js', file => file['AllReviews']('djm-review', file['DefaultReviewsService'].getAllReviews(fetch)))
 
 customElements.define('djm-menu', Menu) 

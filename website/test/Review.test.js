@@ -75,6 +75,16 @@ describe('AllReviews WebComponent', () => {
         const el = await fixture(html`<all-reviews></all-reviews>`)
         expect(el.querySelectorAll('.author').length).equals(3)
     })
+
+    it('should leave its content as provided by client \
+        when there are no reviews', async () => {
+        customElements.define(
+            'empty-reviews', 
+            AllReviews('test-review', () => Promise.resolve([])))
+        const el = await fixture(html`<empty-reviews>Some client content</empty-reviews>`)
+        expect(el.textContent).equals('Some client content')
+        expect(el.querySelector('.author')).equals(null)
+    })
 })
 
 describe('DefaultReviewsService', () => {
