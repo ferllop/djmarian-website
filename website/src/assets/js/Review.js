@@ -36,28 +36,22 @@ export class Review extends HTMLElement {
     }
 }
 
-export const DefaultReviewsService = (function() {
-    const handleResponse = (response, dataWhenFetchFails) => {
-        const responseIsOk = (httpCode) => httpCode < 400
-        return responseIsOk(response.status) 
-            ? response.json()
-            : Promise.resolve(dataWhenFetchFails)
+export const find = (function() {
+    const handleResponse = (response, predicate, onSuccess, onFailure) => {
+        const httpStartingErrorCode = 400
+        return response.status < httpStartingErrorCode 
+            ? response.json().then(content => predicate(content) ? onSuccess(content) : onFailure(response))
+            : Promise.resolve(onFailure())
     }
 
-    return {
-        getAllReviews: httpClient => 
-            () => httpClient('/all-reviews')
-                .then(res => handleResponse(res, []))
-                .catch(() => Promise.resolve([])),
-
-        getRandomReview: httpClient =>
-            () => httpClient('/random-review')
-                .then(res => handleResponse(res, null))
-                .catch(() => Promise.resolve(null)),
-    }
+    return (httpClient, uri) => 
+        (predicate, onSuccess, onFailure = () => {}) => 
+            httpClient(uri)
+                .then(res => handleResponse(res, predicate, onSuccess, onFailure))
+                .catch(() => Promise.resolve(onFailure()))
 })()
 
-export const RandomReview = (reviewTagName, fetchRandomReviewFunction) => 
+export const RandomReview = (reviewTagName, httpClient, uri) => 
     class extends HTMLElement {
     constructor() {
         super()
@@ -67,16 +61,17 @@ export const RandomReview = (reviewTagName, fetchRandomReviewFunction) =>
     }
 
     async connectedCallback() {
-        const review = await fetchRandomReviewFunction()
-        if (review !== null) {
-            const reviewEl = document.createElement(reviewTagName)
-            reviewEl.update(review)
-            this.replaceChildren(reviewEl)
-        }
+        find(httpClient, uri)(
+            review => review !== null,
+            review => {
+                const reviewEl = document.createElement(reviewTagName)
+                reviewEl.update(review)
+                this.replaceChildren(reviewEl)
+            })
     }
 }
 
-export const AllReviews = (reviewTagName, fetchAllReviewsFunction) => 
+export const AllReviews = (reviewTagName, httpClient, uri) => 
     class extends HTMLElement {
     constructor() {
         super()
@@ -86,12 +81,13 @@ export const AllReviews = (reviewTagName, fetchAllReviewsFunction) =>
     }
 
     async connectedCallback() {
-        const reviews = await fetchAllReviewsFunction()
-        if (reviews.length > 0) {
-            this.ulEl = document.createElement('ul')
-            this.ulEl.replaceChildren(...reviews.map(this.renderListItem.bind(this)))
-            this.replaceChildren(this.ulEl)
-        }
+        await find(httpClient, uri)( 
+            reviews => reviews.length > 0, 
+            reviews => {
+                this.ulEl = document.createElement('ul')
+                this.ulEl.replaceChildren(...reviews.map(this.renderListItem.bind(this)))
+                this.replaceChildren(this.ulEl)
+            })
     }
 
     renderListItem(review) {

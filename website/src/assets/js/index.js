@@ -8,7 +8,13 @@ async function defineIfPresent(tag, path, f) {
 }
 
 defineIfPresent('djm-video', './Video.js', file => file['Video'])
-defineIfPresent('djm-random-review', './Review.js', file => file['RandomReview']('djm-review', file['DefaultReviewsService'].getRandomReview(fetch)))
-defineIfPresent('djm-all-reviews', './Review.js', file => file['AllReviews']('djm-review', file['DefaultReviewsService'].getAllReviews(fetch)))
+defineIfPresent(
+    'djm-random-review', 
+    './Review.js',
+    file => file['RandomReview']('djm-review', fetch, '/random-review'))
+defineIfPresent(
+    'djm-all-reviews', 
+    './Review.js', 
+    file => file['AllReviews']('djm-review', fetch, '/all-reviews'))
 
 customElements.define('djm-menu', Menu) 

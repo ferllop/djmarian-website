@@ -1,12 +1,12 @@
 import {expect, fixture, html} from '@open-wc/testing'
-import {AllReviews, RandomReview, Review, DefaultReviewsService} from '../src/assets/js/Review.js'
-
+import {AllReviews, RandomReview, Review, find} from '../src/assets/js/Review.js'
 
 const someReviews = quantity => {
     const reviews = []
     for (let i = 1; i <= quantity; i++) {
         reviews.push({
             id: i,
+            source: 'Google',
             name: 'TheName' + i,
             rating: 5,
             content: 'The Content' + i,
@@ -15,35 +15,39 @@ const someReviews = quantity => {
     return reviews
 }
 
-const WithResponse = (klass, data, status = 200) => class extends klass {
-    fetchMock(responseData, responseStatus) {
-        return () => Promise.resolve({
-            status: responseStatus, 
-            json: () => Promise.resolve(responseData),
-        })
-    }
-
-    get reviewTagName() {
-        return 'test-review'
-    }
-
-    get reviewsService() {
-        return DefaultReviewsService(this.fetchMock(data, status))
-    }
-}
-const reviewServiceStub = (responseData, responseStatus = 200) => {
+const httpClientStub = (responseData, responseStatus = 200) => {
     return () => Promise.resolve({
         status: responseStatus, 
         json: () => Promise.resolve(responseData),
     })
 }
 
-
 describe('Review WebComponent', () => {
+    customElements.define('test-review', Review)
     it('should be accessible', async () => {
-        customElements.define('test-review', Review)
         const el = await fixture(html`<test-review></test-review>`)
         await expect(el).to.be.accessible()
+    })
+
+    it('given a review data should generate the correct markup', async () => {
+        const review = someReviews(1)[0]
+        const reviewHtml = `
+            <article id="${review.id}" source="${review.source}">
+                <section class="author">${review.name}</section>
+                <section class="rating" aria-label="${review.rating}">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                </section>
+                <section class="content">
+                    <blockquote>${review.content}</blockquote>
+                </section>
+            </article>`.replace(/\s|\n/g, '')
+        const el = await fixture(html`<test-review></test-review>`)
+        el.update(review)
+        await expect(el.innerHTML.replace(/\s|\n/g, '')).equals(reviewHtml)
     })
 })
 
@@ -51,7 +55,7 @@ describe('RandomReview Webcomponent', () => {
     it('should render a random review ', async () => {
         customElements.define(
             'random-review', 
-            RandomReview('test-review', () => Promise.resolve(someReviews(1)[0])))
+            RandomReview('test-review', httpClientStub(someReviews(1)[0])))
         const el = await fixture(html`<random-review></random-review>`)
         expect(el.querySelector('.author').textContent).equals('TheName1')
     })
@@ -60,7 +64,7 @@ describe('RandomReview Webcomponent', () => {
         when random review is null', async () => {
         customElements.define(
             'failing-random-review', 
-            RandomReview('test-review', () => Promise.resolve(null)))
+            RandomReview('test-review', httpClientStub(null)))
         const el = await fixture(html`<failing-random-review>Some client content</failing-random-review>`)
         expect(el.textContent).equals('Some client content')
         expect(el.querySelector('.author')).equals(null)
@@ -71,7 +75,7 @@ describe('AllReviews WebComponent', () => {
     it('should render the entire list of reviews', async () => {
         customElements.define(
             'all-reviews', 
-            AllReviews('test-review', () => Promise.resolve(someReviews(3))))
+            AllReviews('test-review', httpClientStub(someReviews(3))))
         const el = await fixture(html`<all-reviews></all-reviews>`)
         expect(el.querySelectorAll('.author').length).equals(3)
     })
@@ -80,41 +84,52 @@ describe('AllReviews WebComponent', () => {
         when there are no reviews', async () => {
         customElements.define(
             'empty-reviews', 
-            AllReviews('test-review', () => Promise.resolve([])))
+            AllReviews('test-review', httpClientStub([])))
         const el = await fixture(html`<empty-reviews>Some client content</empty-reviews>`)
         expect(el.textContent).equals('Some client content')
         expect(el.querySelector('.author')).equals(null)
     })
 })
 
-describe('DefaultReviewsService', () => {
-    it('should return null when fetching a random review but the server responds with an http error code', async () => {
-        const sut = DefaultReviewsService.getRandomReview(() => Promise.resolve({
-            status: 400, 
-            json: () => Promise.resolve('Server responds with an http error code')}))
-        const result = await sut()
-        expect(result).to.equal(null)
+describe('find', () => {
+    const assertUnreachable = () => { throw new Error('should be unreachable') }
+    const id = x => x
+
+    it('given a correct response with a VALID content \
+        when fetching any uri \
+        then should execute onSuccess function', async () => {
+        const contentIsValid = () => true
+        const sut = find(httpClientStub('Server responds with valid content', 200))
+        let spy = 0
+        await sut(contentIsValid, () => spy++, assertUnreachable)
+        expect(spy).equals(1)
+    })
+    
+    it('given a correct response with an INVALID content \
+        when fetching any uri \
+        then should execute onFailure function', async () => {
+        const sut = find(httpClientStub('Server responds with invalid content', 200))
+        let spy = 0
+        await sut(() => false, assertUnreachable, () => spy++)
+        expect(spy).equals(1)
+    })
+    
+    it('given a server that responds with an http error code \
+        when fetching any uri \
+        then should execute onFailure function', async () => {
+        const httpFirstErrorCode = 400
+        const sut = find(httpClientStub('Server responds with an http error code', httpFirstErrorCode))
+        let spy = 0
+        await sut(id, assertUnreachable, () => spy++)
+        expect(spy).equals(1)
     })
 
-    it('should return null when fetching a random review but the server fails to respond', async () => {
-        const sut = DefaultReviewsService.getRandomReview(() => Promise.reject('Network unreachable'))
-        const result = await sut()
-        expect(result).to.equal(null)
-    })
-
-    it('should return an empty array when fetching all the reviews but the server responds with an http error code', async () => {
-        const sut = DefaultReviewsService.getAllReviews(() => Promise.resolve({
-            status: 400, 
-            json: () => Promise.resolve('Server responds with an http error code')}))
-        const result = await sut()
-        expect(result instanceof Array).equals(true)
-        expect(result.length).equals(0)
-    })
-
-    it('should return an empty array when fetching all the reviews but the server fails to respond', async () => {
-        const sut = DefaultReviewsService.getAllReviews(() => Promise.reject('Network unreachable'))
-        const result = await sut()
-        expect(result instanceof Array).equals(true)
-        expect(result.length).equals(0)
+    it('given a server that is not reachable \
+        when fetching any uri \
+        then should execute onFailure function', async () => {
+        const sut = find(() => Promise.reject('Server unreachable'))
+        let spy = 0
+        await sut(id, assertUnreachable, () => spy++)
+        expect(spy).equals(1)
     })
 })
