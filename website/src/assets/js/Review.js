@@ -36,78 +36,70 @@ export class Review extends HTMLElement {
     }
 }
 
-export const ReviewsService = (httpClient) => ({
-    async getAllReviews() {
-        return httpClient('/all-reviews')
-            .then(res => this.handleResponse(res, [])) 
-    },
-
-    async getRandomReview() {
-        return httpClient('/random-review')
-            .then(res => this.handleResponse(res, null))
-    },
-
-    async handleResponse(response, dataWhenFetchFails) {
+export const DefaultReviewsService = (function() {
+    const handleResponse = async (response, dataWhenFetchFails) => {
         const responseIsOk = (httpCode) => httpCode < 400
         return responseIsOk(response.status) 
             ? response.json()
             : Promise.resolve(dataWhenFetchFails)
     }
-})
 
-export class RandomReview extends HTMLElement {
-    get reviewsService() {
-        return ReviewsService(fetch)
+    return {
+        getAllReviews(httpClient) {
+            return async function() {
+                return httpClient('/all-reviews')
+                .then(res => handleResponse(res, [])) 
+            }
+        },
+
+        getRandomReview(httpClient) {
+            return async function() {
+                return httpClient('/random-review')
+                .then(res => handleResponse(res, null))
+            }
+        },
     }
+})()
 
-    get reviewTagName() {
-        return 'djm-review'
-    }
-
+export const RandomReview = (reviewTagName, fetchRandomReviewFunction = DefaultReviewsService.getRandomReview(fetch)) => 
+    class extends HTMLElement {
     constructor() {
         super()
-        if (!customElements.get(this.reviewTagName)) {
-            customElements.define(this.reviewTagName, Review)
+        if (!customElements.get(reviewTagName)) {
+            customElements.define(reviewTagName, Review)
         }
     }
 
     async connectedCallback() {
-        const review = await this.reviewsService.getRandomReview()
+        const review = await fetchRandomReviewFunction()
         if (review !== null) {
-            const reviewEl = document.createElement(this.reviewTagName)
+            const reviewEl = document.createElement(reviewTagName)
             reviewEl.update(review)
             this.replaceChildren(reviewEl)
         }
     }
 }
 
-export class AllReviews extends HTMLElement {
-    get reviewsService() {
-        return ReviewsService(fetch)
-    }
-
-    get reviewTagName() {
-        return 'djm-review'
-    }
-
+export const AllReviews = (reviewTagName, fetchAllReviewsFunction = DefaultReviewsService.getAllReviews(fetch)) => 
+    class extends HTMLElement {
     constructor() {
         super()
-        if (!customElements.get(this.reviewTagName)) {
-            customElements.define(this.reviewTagName, Review)
+        if (!customElements.get(reviewTagName)) {
+            customElements.define(reviewTagName, Review)
         }
         this.ulEl = document.createElement('ul')
         this.replaceChildren(this.ulEl)
     }
 
     async connectedCallback() {
-        const reviews = await this.reviewsService.getAllReviews()
+        const reviews = await fetchAllReviewsFunction()
         if (reviews.length > 0) {
             this.ulEl.replaceChildren(...reviews.map(this.renderListItem.bind(this)))
         }
     }
 
     renderListItem(review) {
-        const reviewEl = document.createElement(this.reviewTagName)
+        const reviewEl = document.createElement(reviewTagName)
         reviewEl.classList.add('list-item')
         reviewEl.update(review)
         const liEl = document.createElement('li')
