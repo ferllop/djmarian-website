@@ -37,7 +37,7 @@ export class Review extends HTMLElement {
 }
 
 export const DefaultReviewsService = (function() {
-    const handleResponse = async (response, dataWhenFetchFails) => {
+    const handleResponse = (response, dataWhenFetchFails) => {
         const responseIsOk = (httpCode) => httpCode < 400
         return responseIsOk(response.status) 
             ? response.json()
@@ -45,19 +45,15 @@ export const DefaultReviewsService = (function() {
     }
 
     return {
-        getAllReviews(httpClient) {
-            return async function() {
-                return httpClient('/all-reviews')
-                .then(res => handleResponse(res, [])) 
-            }
-        },
+        getAllReviews: httpClient => 
+            () => httpClient('/all-reviews')
+                .then(res => handleResponse(res, []))
+                .catch(() => Promise.resolve([])),
 
-        getRandomReview(httpClient) {
-            return async function() {
-                return httpClient('/random-review')
+        getRandomReview: httpClient =>
+            () => httpClient('/random-review')
                 .then(res => handleResponse(res, null))
-            }
-        },
+                .catch(() => Promise.resolve(null)),
     }
 })()
 

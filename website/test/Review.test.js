@@ -85,4 +85,26 @@ describe('DefaultReviewsService', () => {
         const result = await sut()
         expect(result).to.equal(null)
     })
+
+    it('should return null when fetching a random review but the server fails to respond', async () => {
+        const sut = DefaultReviewsService.getRandomReview(() => Promise.reject('Network unreachable'))
+        const result = await sut()
+        expect(result).to.equal(null)
+    })
+
+    it('should return an empty array when fetching all the reviews but the server responds with an http error code', async () => {
+        const sut = DefaultReviewsService.getAllReviews(() => Promise.resolve({
+            status: 400, 
+            json: () => Promise.resolve('Server responds with an http error code')}))
+        const result = await sut()
+        expect(result instanceof Array).equals(true)
+        expect(result.length).equals(0)
+    })
+
+    it('should return an empty array when fetching all the reviews but the server fails to respond', async () => {
+        const sut = DefaultReviewsService.getAllReviews(() => Promise.reject('Network unreachable'))
+        const result = await sut()
+        expect(result instanceof Array).equals(true)
+        expect(result.length).equals(0)
+    })
 })
