@@ -15,6 +15,24 @@ const someReviews = quantity => {
     return reviews
 }
 
+const oneReview = someReviews(1)[0]
+
+const reviewBuilder = review => `
+            <article id="${review.id}" source="${review.source}">
+                <section class="author">${review.name}</section>
+                <section class="rating" aria-label="${review.rating}">
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                </section>
+                <section class="content">
+                    <blockquote>${review.content}</blockquote>
+                </section>
+            </article>`
+
+
 const httpClientStub = (responseData, responseStatus = 200) => {
     return () => Promise.resolve({
         status: responseStatus, 
@@ -30,24 +48,10 @@ describe('Review WebComponent', () => {
     })
 
     it('given a review data should generate the correct markup', async () => {
-        const review = someReviews(1)[0]
-        const reviewHtml = `
-            <article id="${review.id}" source="${review.source}">
-                <section class="author">${review.name}</section>
-                <section class="rating" aria-label="${review.rating}">
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                    <span class="star"></span>
-                </section>
-                <section class="content">
-                    <blockquote>${review.content}</blockquote>
-                </section>
-            </article>`.replace(/\s|\n/g, '')
         const el = await fixture(html`<test-review></test-review>`)
-        el.update(review)
-        await expect(el.innerHTML.replace(/\s|\n/g, '')).equals(reviewHtml)
+        el.update(oneReview)
+        const expectedHtml = reviewBuilder(oneReview)
+        await expect(el).lightDom.to.equal(expectedHtml)
     })
 })
 
@@ -55,9 +59,9 @@ describe('RandomReview Webcomponent', () => {
     it('should render a random review ', async () => {
         customElements.define(
             'random-review', 
-            RandomReview('test-review', httpClientStub(someReviews(1)[0])))
+            RandomReview('test-review', httpClientStub(oneReview)))
         const el = await fixture(html`<random-review></random-review>`)
-        expect(el.querySelector('.author').textContent).equals('TheName1')
+        expect(el.querySelector('.author')).to.have.text('TheName1')
     })
 
     it('should leave its content as provided by client \
@@ -66,8 +70,8 @@ describe('RandomReview Webcomponent', () => {
             'failing-random-review', 
             RandomReview('test-review', httpClientStub(null)))
         const el = await fixture(html`<failing-random-review>Some client content</failing-random-review>`)
-        expect(el.textContent).equals('Some client content')
-        expect(el.querySelector('.author')).equals(null)
+        expect(el).to.have.text('Some client content')
+        expect(el).to.not.have.class('.author')
     })
 })
 
@@ -77,7 +81,7 @@ describe('AllReviews WebComponent', () => {
             'all-reviews', 
             AllReviews('test-review', httpClientStub(someReviews(3))))
         const el = await fixture(html`<all-reviews></all-reviews>`)
-        expect(el.querySelectorAll('.author').length).equals(3)
+        expect(el.querySelectorAll('.author')).to.have.length(3)
     })
 
     it('should leave its content as provided by client \
@@ -86,8 +90,8 @@ describe('AllReviews WebComponent', () => {
             'empty-reviews', 
             AllReviews('test-review', httpClientStub([])))
         const el = await fixture(html`<empty-reviews>Some client content</empty-reviews>`)
-        expect(el.textContent).equals('Some client content')
-        expect(el.querySelector('.author')).equals(null)
+        expect(el).to.have.text('Some client content')
+        expect(el.querySelector('.author')).not.to.exist
     })
 })
 
@@ -108,9 +112,10 @@ describe('find', () => {
     it('given a correct response with an INVALID content \
         when fetching any uri \
         then should execute onFailure function', async () => {
+        const contentIsInvalid = () => false
         const sut = find(httpClientStub('Server responds with invalid content', 200))
         let spy = 0
-        await sut(() => false, assertUnreachable, () => spy++)
+        await sut(contentIsInvalid, assertUnreachable, () => spy++)
         expect(spy).equals(1)
     })
     
