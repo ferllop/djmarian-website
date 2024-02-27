@@ -17,9 +17,6 @@ export class Review extends HTMLElement {
         this.rating = this.dom.querySelector('.rating')
         this.content = this.dom.querySelector('.content blockquote')
     }
-    
-    connectedCallback() {
-    }
 
     update(model) {
         const renderStars = rating => {
@@ -37,19 +34,29 @@ export class Review extends HTMLElement {
 }
 
 export const find = (function() {
-    const handleResponse = (response, predicate, onSuccess, onFailure) => {
+    const handleContent = handler => content => 
+        handler.predicate(content) 
+            ? handler.onSuccess(content) 
+            : handler.onInvalidContent(content)
+
+    const handleResponse = (response, handler) => {
         const httpStartingErrorCode = 400
         return response.status < httpStartingErrorCode 
-            ? response.json().then(content => predicate(content) ? onSuccess(content) : onFailure(response))
-            : Promise.resolve(onFailure())
+            ? response.json().then(handleContent(handler))
+            : Promise.resolve(handler.onServiceError(response.status))
     }
 
-    return (httpClient, uri) => 
-        (predicate, onSuccess, onFailure = () => {}) => 
+    return (httpClient, uri) => handler => 
             httpClient(uri)
-                .then(res => handleResponse(res, predicate, onSuccess, onFailure))
-                .catch(() => Promise.resolve(onFailure()))
+                .then(res => handleResponse(res, handler))
+                .catch(message => Promise.resolve(handler.onServiceUnreachable(message)))
 })()
+
+const handlerDoNothingWhenError = {
+    onInvalidContent: content => console.error(content),
+    onServiceError: httpCode => console.error(`Reviews service responded with http error code ${httpCode}`),
+    onServiceUnreachable: message => console.error(`Review service is unreachable. Cause: ${message}`),
+}
 
 export const RandomReview = (reviewTagName, httpClient, uri) => 
     class extends HTMLElement {
@@ -61,13 +68,15 @@ export const RandomReview = (reviewTagName, httpClient, uri) =>
     }
 
     async connectedCallback() {
-        find(httpClient, uri)(
-            review => review !== null,
-            review => {
+        find(httpClient, uri)({
+            ...handlerDoNothingWhenError,
+            predicate: review => review !== null,
+            onSuccess: review => {
                 const reviewEl = document.createElement(reviewTagName)
                 reviewEl.update(review)
                 this.replaceChildren(reviewEl)
-            })
+            }
+        })
     }
 }
 
@@ -81,13 +90,14 @@ export const AllReviews = (reviewTagName, httpClient, uri) =>
     }
 
     async connectedCallback() {
-        await find(httpClient, uri)( 
-            reviews => reviews.length > 0, 
-            reviews => {
+        await find(httpClient, uri)({ 
+            ...handlerDoNothingWhenError,
+            predicate: reviews => reviews.length > 0, 
+            onSuccess: reviews => {
                 this.ulEl = document.createElement('ul')
                 this.ulEl.replaceChildren(...reviews.map(this.renderListItem.bind(this)))
                 this.replaceChildren(this.ulEl)
-            })
+            }})
     }
 
     renderListItem(review) {

@@ -96,8 +96,14 @@ describe('AllReviews WebComponent', () => {
 })
 
 describe('find', () => {
-    const assertUnreachable = () => { throw new Error('should be unreachable') }
-    const id = x => x
+    const unreachable = functionName => data => { throw new Error(`${functionName} should be unreachable: ${data}`)}
+    const handlerStub = {
+        predicate: unreachable('predicate'),
+        onSuccess: unreachable('onSuccess'),
+        onInvalidContent: unreachable('onInvalidContent'),
+        onServiceError: unreachable('onServiceError'),
+        onServiceUnreachable: unreachable('onServiceFailure'),
+    }
 
     it('given a correct response with a VALID content \
         when fetching any uri \
@@ -105,36 +111,36 @@ describe('find', () => {
         const contentIsValid = () => true
         const sut = find(httpClientStub('Server responds with valid content', 200))
         let spy = 0
-        await sut(contentIsValid, () => spy++, assertUnreachable)
+            await sut({...handlerStub, predicate: contentIsValid, onSuccess: () => spy++})
         expect(spy).equals(1)
     })
     
     it('given a correct response with an INVALID content \
         when fetching any uri \
-        then should execute onFailure function', async () => {
+        then should execute onInvalidContent function', async () => {
         const contentIsInvalid = () => false
         const sut = find(httpClientStub('Server responds with invalid content', 200))
         let spy = 0
-        await sut(contentIsInvalid, assertUnreachable, () => spy++)
+            await sut({...handlerStub, predicate: contentIsInvalid, onInvalidContent: () => spy++})
         expect(spy).equals(1)
     })
     
     it('given a server that responds with an http error code \
         when fetching any uri \
-        then should execute onFailure function', async () => {
+        then should execute onServiceError function', async () => {
         const httpFirstErrorCode = 400
         const sut = find(httpClientStub('Server responds with an http error code', httpFirstErrorCode))
         let spy = 0
-        await sut(id, assertUnreachable, () => spy++)
+        await sut({ ...handlerStub, onServiceError: () => spy++ })
         expect(spy).equals(1)
     })
 
     it('given a server that is not reachable \
         when fetching any uri \
-        then should execute onFailure function', async () => {
+        then should execute onServiceUnreachable function', async () => {
         const sut = find(() => Promise.reject('Server unreachable'))
         let spy = 0
-        await sut(id, assertUnreachable, () => spy++)
+        await sut({ ...handlerStub, onServiceUnreachable: () => spy++ })
         expect(spy).equals(1)
     })
 })
