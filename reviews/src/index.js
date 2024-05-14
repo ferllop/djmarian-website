@@ -1,10 +1,10 @@
 import express from 'express'
-import reviews from './reviews.json' assert { type: 'json' };
+import reviews from '../reviews.json' assert { type: 'json' };
 
 const app = express()
 
 
-app.get('/random', (req, res) => {
+app.get('/random', res => {
 	const getRandomReview = reviews => {
 		const getRandomIntegerBothIncluded = (min, max) => {
 			const minCeiled = Math.ceil(min)
@@ -17,7 +17,7 @@ app.get('/random', (req, res) => {
 	res.json(getRandomReview(reviews))
 })
 
-app.get('/all', (req, res) => {
+app.get('/all', res => {
 	res.json(reviews)
 })
 
