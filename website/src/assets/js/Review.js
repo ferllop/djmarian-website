@@ -25,7 +25,7 @@ export class Review extends HTMLElement {
         }
         this.article.setAttribute('id', model.id) 
         this.article.setAttribute('source', model.source)
-        this.author.textContent = model.name
+        this.author.textContent = model.authorName
         this.rating.innerHTML = renderStars(model.rating)
         this.rating.setAttribute('aria-label', model.rating)
         this.content.textContent = model.content

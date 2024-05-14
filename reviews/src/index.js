@@ -4,7 +4,7 @@ import reviews from '../reviews.json' assert { type: 'json' };
 const app = express()
 
 
-app.get('/random', res => {
+app.get('/random', (_, res) => {
 	const getRandomReview = reviews => {
 		const getRandomIntegerBothIncluded = (min, max) => {
 			const minCeiled = Math.ceil(min)
@@ -17,7 +17,7 @@ app.get('/random', res => {
 	res.json(getRandomReview(reviews))
 })
 
-app.get('/all', res => {
+app.get('/all', (_, res) => {
 	res.json(reviews)
 })
 
