@@ -2,15 +2,9 @@ services:
   apache:
     labels:
       - traefik.enable=true
+      - traefik.http.routers.djmarian-wp.entrypoints=web-secure
+      - traefik.http.routers.djmarian-wp.rule=HostRegexp(`${TRAEFIK_FQDN:?}`)
       - traefik.http.services.djmarian-wp.loadbalancer.server.port=80
-      - traefik.http.routers.djmarian-wp.entrypoints=web
-      - traefik.http.routers.djmarian-wp.rule=Host(${TRAEFIK_FQDN:?})
-      - traefik.http.middlewares.djmarian-wp-https-redirect.redirectscheme.scheme=https
-      - traefik.http.routers.djmarian-wp.middlewares=djmarian-wp-https-redirect
-      - traefik.http.routers.djmarian-wp-secure.entrypoints=web-secure
-      - traefik.http.routers.djmarian-wp-secure.rule=Host(${TRAEFIK_FQDN:?})
-      - traefik.http.routers.djmarian-wp-secure.tls=true
-      - traefik.http.routers.djmarian-wp-secure.tls.certresolver=letsencrypt
     networks:
       - traefik
       - default
