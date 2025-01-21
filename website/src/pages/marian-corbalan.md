@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 title: ¿Quién soy?
-metaDescription: "Con la música de principio a fin. De coreógrafa a discjockey. 20 años ya en esta profesión. ¡Y los que me quedan!"
+metaDescription: "Soy DJ, soy mujer y soy de Barcelona. Con la música de principio a fin, de coreógrafa a discjockey. 25 años ya en esta profesión. ¡Y los que me quedan!"
 ---
 <div class="about"> 
 
@@ -23,7 +23,7 @@ A partir de ese evento me llamaron para hacer más. En menos de cinco meses, me
 
 ![](/assets/images/1-ByN-e1525715400830.jpg)
 
-Hasta el día de hoy, llevo más de 20 años dedicados a eventos corporativos, bodas, cumpleaños y fiestas varias que me han llevado a pinchar en locales como:
+Hasta el día de hoy, llevo más de 25 años dedicados a eventos corporativos, bodas, cumpleaños y fiestas varias que me han llevado a pinchar en locales como:
 
 Anexo del Palau Sant Jordi, Sala Vip del Palau San Jordi, Sala Oval MNAC, CCIB Barcelona, Cavas Codorniu, Sala Comillas, Cala Morisca, Utopia 126, Masia Egara, Can Mora, Forum Barcelona, Jardins de l'Hospital Sant Pau, La Caleta de sitges, Passatge Bcn, RBA, Museo Man, El rey de la Magia, Can Descregut, Poble Espanyol, Mirabe, Castell de Sant Marçal, Mas Pujol y Villa Bugatti.
 
@@ -33,6 +33,7 @@ En hoteles como Dolçe de Sitges, Fira Palace,  Miramar, Arts, Juan Carlos I, P
 
 ![](/assets/images/14.jpg)
 
+Mi zona habitual de trabajo es Barcelona y alrededores, pero voy allá donde me necesiten. Por eso también he trabajado en:
 Viajando a lugares como Atenas, Sicilia, Marruecos (en una haima en mitad del desierto), Córdoba, Santiago de Compostela, Asturias, Sevilla, Málaga, Alicante, Andorra, Madrid y Huesca.
 
 ![](/assets/images/6.jpg)
