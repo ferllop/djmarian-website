@@ -2,7 +2,7 @@
 layout: home.njk
 siteTitle: "DJ MARIAN - Eventos privados 100% personalizados"
 title: "DJ especializada en eventos privados"
-metaDescription: "Discjockey mujer afincada en Barcelona y especializada en eventos privados. Servicio 100% personalizado. Equipo audiovisual propio. Música sin etiquetas. Be Water My Friend."
+metaDescription: "DJ mujer afincada en Barcelona y especializada en eventos privados. Servicio 100% personalizado. Equipo audiovisual propio. Música sin etiquetas. Be Water My Friend."
 permalink: "/"
 ---
 

@@ -7,7 +7,9 @@ metaDescription: "Soy DJ, soy mujer y soy de Barcelona. Con la música de princi
 
 ![](/assets/images/plata.jpg)
 
-Nací en Badalona un Sábado 9 de Septiembre de 1972 y crecí entre Badalona y Calasparra, el pueblo de mi madre.
+Eso tiene fácil respuesta; mi nombre es Marian, soy DJ mujer y vivo en Barcelona.
+
+Nací en Badalona, un Sábado 9 de Septiembre de 1972 y crecí entre Badalona y Calasparra, el pueblo de mi madre.
 
 Hija de padres separados y hermana mayor de un total de tres, de bien pequeña lo que más me gustaba era bailar. En cuanto pude, empecé a colarme en las discotecas, por no tener aún la edad, y así poder bailar a rienda suelta.
 
@@ -29,12 +31,11 @@ Anexo del Palau Sant Jordi, Sala Vip del Palau San Jordi, Sala Oval MNAC, CCIB B
 
 ![](/assets/images/starofservice_84060img20160404172358.jpg)
 
-En hoteles como Dolçe de Sitges, Fira Palace,  Miramar, Arts, Juan Carlos I, Princesa Sofia, La Florida. En tiendas como Pinko, Swaroski, Shana, Louis Vuitton.
+En hoteles como Dolçe de Sitges, Fira Palace, Miramar, Arts, Juan Carlos I, Princesa Sofia, La Florida. En tiendas como Pinko, Swaroski, Shana, Louis Vuitton.
 
 ![](/assets/images/14.jpg)
 
-Mi zona habitual de trabajo es Barcelona y alrededores, pero voy allá donde me necesiten. Por eso también he trabajado en:
-Viajando a lugares como Atenas, Sicilia, Marruecos (en una haima en mitad del desierto), Córdoba, Santiago de Compostela, Asturias, Sevilla, Málaga, Alicante, Andorra, Madrid y Huesca.
+Mi zona habitual de trabajo es Barcelona y alrededores, pero voy allá donde me necesiten. Por eso también he trabajado en lugares como Atenas, Sicilia, Marruecos (en una haima en mitad del desierto), Córdoba, Santiago de Compostela, Asturias, Sevilla, Málaga, Alicante, Andorra, Madrid y Huesca.
 
 ![](/assets/images/6.jpg)
 
