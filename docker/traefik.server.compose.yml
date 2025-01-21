@@ -2,9 +2,9 @@ services:
   apache:
     labels:
       - traefik.enable=true
-      - traefik.http.routers.djmarian-wp.entrypoints=web-secure
-      - traefik.http.routers.djmarian-wp.rule=HostRegexp(`${TRAEFIK_FQDN:?}`)
-      - traefik.http.services.djmarian-wp.loadbalancer.server.port=80
+      - traefik.http.routers.djmarian-static-web.entrypoints=web-secure
+      - traefik.http.routers.djmarian-static-web.rule=Host(`www.${TRAEFIK_FQDN:?}.com`) || Host(`${TRAEFIK_FQDN:?}.com`) || Host(`www.${TRAEFIK_FQDN:?}.es`) || Host(`${TRAEFIK_FQDN:?}.es`)
+      - traefik.http.services.djmarian-static-web.loadbalancer.server.port=80
     networks:
       - traefik
       - default
