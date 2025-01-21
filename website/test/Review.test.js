@@ -7,7 +7,7 @@ const someReviews = quantity => {
         reviews.push({
             id: i,
             source: 'Google',
-            name: 'TheName' + i,
+            authorName: 'TheName' + i,
             rating: 5,
             content: 'The Content' + i,
         })
@@ -19,7 +19,7 @@ const oneReview = someReviews(1)[0]
 
 const reviewBuilder = review => `
             <article id="${review.id}" source="${review.source}">
-                <section class="author">${review.name}</section>
+                <section class="author">${review.authorName}</section>
                 <section class="rating" aria-label="${review.rating}">
                     <span class="star"></span>
                     <span class="star"></span>
